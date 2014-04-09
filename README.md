@@ -2,14 +2,13 @@
  
 ##Learning Competencies 
 
-* Use a MVC design pattern to model a problem
 * Create well-defined classes with a single responsibility
 * Identify and implement classes based on real world requirements
 * Implement clean and flexible interfaces between objects
 
 ##Summary 
 
- This is the first of several iterations towards building a single-user command-line TODO application.  Each iteration will involve addinging new commands and features.
+ This is the first of several iterations towards building a single-user command-line TODO application.  Each iteration will involve adding new commands and features.
 
 From the user's perspective, we want to build something that works like this:
 
