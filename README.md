@@ -19,7 +19,7 @@ $ ruby todo.rb delete <task_id>
 $ ruby todo.rb complete <task_id>
 ```
 
-Your text file (an example is included in the Original gist) will be simple.  Just task descriptions each on their own line.  Keep in mind that you will eventually have more information included, this is why we want you to use the CSV format.
+Your text file (an example is included in this repo) will be simple.  Just task descriptions each on their own line.  Keep in mind that you will eventually have more information included, this is why we want you to use the CSV format.
 
 Example:  
 
@@ -37,51 +37,18 @@ Start by enumerating the responsibilities of your TODO application.  These aren'
 
 Each responsibility should map to a concrete unit of Ruby code.  For example,
 
-<table class="table table-striped table-bordered">
-  <tr>
-    <th>Responsibility</th>
-    <th>Code world</th>
-  </tr>
-  <tr>
-    <td>Initialize an empty TODO list</td>
-    <td>
-      <code>list = List.new</code>
-    </td>
-  </tr>
-  <tr>
-    <td>Add a task to a TODO list</td>
-    <td>
-      <code>list.add(Task.new("walk the dog"))</code>
-    </td>
-  </tr>
-  <tr>
-    <td>Get all the tasks on a TODO list</td>
-    <td>
-      <code>tasks = list.tasks</code>
-    </td>
-  </tr>
-  <tr>
-    <td>Delete a particular task from a TODO list</td>
-    <td><code>???</code></td>
-  </tr>
-  <tr>
-    <td>Complete a particular task on a TODO list</td>
-    <td><code>???</code></td>
-  </tr>
+Responsibility                                                                     | Code World
+-----------------------------------------------------------------------------------|------------------------------------
+Initialize an empty TODO list                                                      | `list = List.new`
+Add a task to a TODO list                                                          | `list.add(Task.new("walk the dog"))`
+Get all the tasks on a TODO list                                                   | ` tasks = list.tasks`
+Delete a particular task from a TODO list                                          | `???`
+Complete a particular task on a TODO list                                          | `???`
+Parse the command-line arguments and take the appropriate action                   | `???`
+Parse the `todo.csv` file and wrap each entry in easier-to-manipulate Ruby objects | `???`
 
-  <tr>
-    <td>Parse the command-line arguments and take the appropriate action</td>
-    <td><code>???</code></td>
-  </tr>
-  <tr>
-    <td>Parse the <code>todo.csv</code> file and wrap each entry in easier-to-manipulate Ruby objects</td>
-    <td><code>???</code></td>
-  </tr>
-  <tr>
-    <td>There are other responsibilities.  What are they?</td>
-    <td></td>
-  </tr>
-</table>
+
+There are other responsibilities.  What are they?
 
 ###Release 1 : Translate to Code
 
