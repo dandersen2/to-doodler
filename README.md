@@ -1,12 +1,12 @@
-# Ruby Todos 1.0 Core Features 
- 
-##Learning Competencies 
+# Ruby Todos 1.0 Core Features
+
+##Learning Competencies
 
 * Create well-defined classes with a single responsibility
 * Identify and implement classes based on real world requirements
 * Implement clean and flexible interfaces between objects
 
-##Summary 
+##Summary
 
  This is the first of several iterations towards building a single-user command-line TODO application.  Each iteration will involve adding new commands and features.
 
@@ -21,13 +21,13 @@ $ ruby todo.rb complete <task_id>
 
 Your text file (an example is included in this repo) will be simple.  Just task descriptions each on their own line.  Keep in mind that you will eventually have more information included, this is why we want you to use the CSV format.
 
-Example:  
+Example:
 
-```text  
-Bake a delicious blueberry-glazed cheesecake  
-Go play miniature golf with Mike Tyson  
-Become a World-Class Developer  
-```` 
+```text
+Bake a delicious blueberry-glazed cheesecake
+Go play miniature golf with Mike Tyson
+Become a World-Class Developer
+````
 
 ##Releases
 
@@ -52,7 +52,7 @@ There are other responsibilities.  What are they?
 
 ###Release 1 : Translate to Code
 
-Once you have a solid list of responsibilities you can start translating each into code.  Be sure to write comprehensive test code.
+Once you have a solid list of responsibilities you can start translating each into code.  Be sure to write comprehensive tests.
 
 ####Implement the list command
 
@@ -134,15 +134,12 @@ Here's the way the file should be saved:
 
 *(the brackets indicate whether the task has been completed or not)*
 
-What factors do you need to take into account to save this data correctly?  How does this change the parsing (besides not being able to use the CSV class)?  
+What factors do you need to take into account to save this data correctly?  How does this change the parsing (besides not being able to use the CSV class)?
 
 Update your app to accommodate this new feature!
 
-##Optimize Your Learning 
+##Optimize Your Learning
 
 Keep things like the [single responsibility principle](http://en.wikipedia.org/wiki/Single_responsibility_principle) and [separation of concerns](http://en.wikipedia.org/wiki/Separation_of_concerns) in mind as you decide what objects and classes belong in your application.
 
 As you work through the iterations, pay close attention to how *change* impacts your application.  When a new feature is added how many files do you have to change?  How frustrating is it to make those changes?
-
-
-##Resources
