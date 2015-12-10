@@ -1,20 +1,19 @@
 require 'pry'
-require_relative 'todo_parser'
-require_relative 'todo'
+require_relative 'task_parser'
+require_relative 'task'
 
 # Parse the data in the todo.csv file into ruby todo objects
-parser = ToDoParser.new('todo.csv')
+parsed_csv = TaskParser.new('todo.csv')
 
-todo_list = parser.parse_todos_to_todo_objects
+my_to_do_list = parsed_csv.populate_task_list
 
-urgent_task = ToDo.new(todo_list)
-
+# urgent_task = Task.new(task_list)
+# p urgent_task
 
 # binding.pry
 
 
-p urgent_task
 
-p todo_list
+p my_to_do_list
 
 # puts urgent_task

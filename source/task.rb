@@ -1,4 +1,4 @@
-require_relative 'todo_parser'
+require_relative 'task_parser'
 
 class Task
   attr_reader :task_id
@@ -18,26 +18,13 @@ class Task
   end
 
   def completed(task_id)
-
     #moves the task (provided in the argument) to a completed tasks data structure
     # Note!: This will require changing the format of todo.csv and the code that parses it.
     # IDEA: take an array called complete that is included in the pretty printed version and just put an X into it instead of a " " empty space ???
   end
 
   def completed?(task_id)
-    if @completed.include?("X")
-      true
-    else
-      false
-    end
-  end
-
-  def combine_checkbox_and_content
-    [self.completed, self.task_id, self.task_content]
-  end
-
-  def to_s
-    "#{@task_content}"
+    @completed
   end
 
 end

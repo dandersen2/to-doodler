@@ -1,6 +1,6 @@
 require 'csv'
 require 'pry'
-require_relative 'todo'
+require_relative 'task'
 
 class TaskParser
   attr_reader :file, :parsed_list, :list
@@ -11,7 +11,7 @@ class TaskParser
     @list = []
   end
 
-  def populate_todo_list
+  def populate_task_list
     # Returns an array of Todo objects from todo.csv
     csv_file = CSV.open(file).map do |row|
     # csv_file = CSV.open(file).map do |row|
@@ -22,9 +22,9 @@ class TaskParser
 
     end
     self.parsed_list.each do |task_content_string|
-      self.list << ToDo.new({task_content: task_content_string, task_id: rand.to_s[2..15].to_i})
+      self.list << Task.new({task_content: task_content_string, task_id: rand.to_s[2..15].to_i})
     end
-    binding.pry
+    # binding.pry
     # (use this to check what is being shoveled into @parsed_list)
   end
 
