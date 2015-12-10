@@ -68,3 +68,5 @@ DEFINE class 'TodoListTask'
 require_relative 'controller'
 
 Controller.new
+
+puts
