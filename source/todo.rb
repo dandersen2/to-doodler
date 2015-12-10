@@ -1,3 +1,6 @@
+require_relative "list"
+require_relative "task"
+require_relative "view"
 # What classes do you need?
 
 # Remember, there are four high-level responsibilities, each of which have multiple sub-responsibilities:
@@ -8,3 +11,23 @@
 
 # Note that (4) is where the essence of your application lives.
 # Pretty much every application in the universe has some version of responsibilities (1), (2), and (3).
+
+
+
+
+
+
+class Todo
+
+  def complete(task)
+  end
+
+end
+
+  # list = List.new
+  # list.add(Task.new("walk the dog"))
+  # p list
+
+argv[0]
+
+controller.rb
