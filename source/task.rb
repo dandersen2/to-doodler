@@ -6,4 +6,8 @@ def initialize(args={})
   @status = args.fetch(:status, nil)
 end
 
+def to_s
+  "Task: #{@item}, Status: #{@status}"
+end
+
 end

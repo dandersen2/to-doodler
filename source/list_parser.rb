@@ -32,5 +32,5 @@ end
 
 
 
-p tasks = ListParser.new("/Users/apprentice/Desktop/ruby-todos-1-0-core-features-challenge/source/todo.csv")
-p tasks.list_parser
+# p tasks = ListParser.new("/Users/apprentice/Desktop/ruby-todos-1-0-core-features-challenge/source/todo.csv")
+# p tasks.list_parser

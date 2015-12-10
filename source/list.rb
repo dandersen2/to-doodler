@@ -7,7 +7,7 @@ def initialize
   @tasks = []
 end
 
-def add_tasks(task)
+def add_task(task)
   self.tasks << task
 end
 

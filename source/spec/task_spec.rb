@@ -15,5 +15,11 @@ describe Task do
     end
   end
 
+  describe '#to_s' do
+    it 'should return your task as a string' do
+      expect(task_1.to_s).to eq("Task: Move with Lil to the black mountain hills of Dakota, Status: Pending")
+    end
+  end
+
 end
 
