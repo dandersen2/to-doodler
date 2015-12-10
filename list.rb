@@ -1,8 +1,10 @@
 require 'csv'
 require_relative 'task'
+require_relative 'doable'
 require 'pry'
 
 class List
+  include Doable
 attr_reader :file, :to_dos, :each_task
 
   def initialize(file)
@@ -22,29 +24,9 @@ attr_reader :file, :to_dos, :each_task
     end
    end
 
-   def delete(donetask)
-    self.to_dos.delete_if { |task| task.to_do == donetask }
-    save
-   end
-
-   def add(args = {})
-    self.to_dos << Task.new(args)
-    save
-   end
-
-   def done(task)
-
-   end
-   def delete_first_task
-    self.to_dos.shift
-    save
-   end
-
-   def save
-    CSV.open("source/todo.csv", "wb") do |csv|
-      self.to_dos.each do |task|
-        csv << [task.to_do]
-      end
+   def to_s
+    self.to_dos.each do |task|
+      p task.to_do + " #{task.completed}"
     end
    end
 
@@ -52,7 +34,25 @@ end
 
 list = List.new('source/todo.csv')
 list.add_list
-list.delete("Move with Lil to the black mountain hills of Dakota")
-binding.pry
-p list
+
+list.add({to_do: "Eat Sandwhich"})
+list.delete("Lose Lil to Danny")
+list.add
+
+#NEED THIS.. changes false to true on the status
+list.done("Lose Lil to Danny")
+
+
+puts list
+
+# list.delete("Move with Lil to the black mountain hills of Dakota")
+
+
+
+
+
+
+
+
+
 
