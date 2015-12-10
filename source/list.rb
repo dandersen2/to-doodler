@@ -1,23 +1,34 @@
-# require 'parser'
+require 'pry'
 
 class List
 
   attr_accessor :list
 
   def initialize()
-    @list = []
+    @list = [] #read("todo.csv")
   end
 
   def add(task)
-    @list << task
-    puts "Appended #{task} to the to-do list"
+    @list << Task.new(task)
   end
 
-  def remove(index)
-    @list[index].delete
+  def delete(index) #deletes the task and task number
+    @list.delete_at(index-1)
   end
 
+  def complete(index)
+    @list[index-1].completed = true
+  end
 
+  def to_s
+     accumulator = ""
+     i = 1
+     @list.each do |task|
+       accumulator += "#{i}. [#{task.fillblank}] #{task.string_task}\n"
+       i += 1
+     end
+     accumulator
+  end
 
 end
 
