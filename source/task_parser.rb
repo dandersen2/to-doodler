@@ -1,3 +1,5 @@
+# I AM JACK's APPENDIX, I AM SWOLLEN AND VESTIGIAL. REMOVE ME FROM JACK!
+
 require 'csv'
 require 'pry'
 require_relative 'task'

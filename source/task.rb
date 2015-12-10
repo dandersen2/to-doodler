@@ -1,13 +1,19 @@
-require_relative 'task_parser'
+# I AM ONE OF JACK's DIGITS. HE NEEDS ME. MANY OF ME MAKE A HAND.
+
+# require_relative 'task_parser'
 
 class Task
-  attr_reader :task_id, @content
+  attr_reader :task_id, :task_content
   attr_writer :completed
 
-  def initialize(args = {})
+  def initialize(args) #(new_task)   #(args = {})
     self.completed  = false
-    @task_content = args.fetch(:task_content, "")
-    @task_id = args.fetch(:task_id, 0)
+    @task_content = args
+    @task_id = rand.to_s[2..6].to_i
+    # @task_content = args.fetch(:content, args) || args   #new_task
+    # @task_content = args.fetch(:task_content, "")
+    # @task_id = args.fetch(:task_id, rand.to_s[2..6].to_i) || args
+    # @task_id = args.fetch(:task_id, 0)
     # @completed = []
     # @task_id = parsed_todo.fetch(:task_id, "0000" )
     # @task_id = 345

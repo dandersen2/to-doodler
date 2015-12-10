@@ -1,13 +1,17 @@
+#I AM JACK's HANDs AND FEET. I AM MADE UP OF DIGIT OBJECTS
+
 require 'pry'
-require_relative 'task_parser'
+# require_relative 'task_parser'
 require_relative 'task'
 
 class TaskList
+  attr_reader :list
 
-  def initialize(args)
-    @list = args.fetch(:list, [])
+  def initialize #(args = )
+    @list = []
+    # @list = args.fetch(:list, [])
     @length
-    @counter = 1
+    # @counter = 1
   end
 
   def add(new_task_object)
@@ -21,7 +25,11 @@ class TaskList
 
   end
 
-  def delete(task_id, task_list_name)
+  def delete(task_id)
+    self.list.each do |task_object|
+      if task_object.task_id == task_id
+       task_object.delete()
+    end
     #deleted the task with the given task_id from the task list named task_list_name
 
   end
@@ -49,14 +57,19 @@ class TaskList
 
 
   def to_s
+    counter = 0
     @list.each do |task|
       if @completed
-        " #{self.counter} []" + task
+        counter + "[ ]" + task
       else
-        " #{self.counter} []" + task
+        counter + "[X]" + task
+        # " #{self.counter} [X]" + task
       end
-      self.counter += 1
+      counter += 1
+    end
   end
+
+end
 
 
 
