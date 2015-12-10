@@ -15,4 +15,15 @@ def update_task
   @status = "Completed"
 end
 
+def task_change_status_format
+  if @status == "Completed"
+    @status = "[x]"
+  else
+    @status = "[ ]"
+  end
+end
+
+def format_task_for_txt
+   "#{@number}. #{@status} #{@item} \n"
+end
 end

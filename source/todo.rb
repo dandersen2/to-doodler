@@ -15,8 +15,17 @@ class Todo
 
   def write_to_csv
     CSV.open("new.csv", 'w') do |writer|
-      @to_do.tasks.each do |c|
-        writer << [c.number, c.item, c.status]
+      @to_do.tasks.each do |task|
+        writer << [task.number, task.status, task.item]
+      end
+    end
+  end
+
+  def write_to_text
+    File.open("to_do.txt",'w+') do |file|
+      @to_do.tasks.each do |task|
+        task.task_change_status_format
+        file << task.format_task_for_txt
       end
     end
   end
@@ -51,6 +60,7 @@ class Todo
   end
 
   def run_interface
+
     @view.display_welcome_message
 
     input = @view.get_input
@@ -72,6 +82,7 @@ class Todo
     end
     puts "Thanks for using To-Do List!"
     write_to_csv
+    write_to_text
   end
 
 end
