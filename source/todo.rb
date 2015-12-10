@@ -17,25 +17,14 @@ class Todo #CONTROLLER
     when 'list'
       @view.display(@tdl.list)
     when 'add'
-      @tdl.add(task: ARGV[1], id:14)
-      @view.display(@tdl.list)
+      @tdl.add(ARGV[1])
+      @view.display('Success! You added: '+ ARGV[1])
     when 'delete'
       @tdl.delete_by_id(ARGV[1].to_i)
       @view.display(@tdl.list)
     else
       @view.display("Sorry, not a valid command")
     end
-
-
-    #   when 'list'
-    #     @view.display(@tdl.list)
-    #   when 'add'
-    #     @tdl.add(task_id: 14, task: "Listen to The Beatles")
-    #     @view.display(@tdl.list)
-    #   else
-    #     @view.display("Sorry, not a valid command") unless command == 'quit'
-    #   end
-
   end
 
 end

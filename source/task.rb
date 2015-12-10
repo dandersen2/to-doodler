@@ -10,17 +10,7 @@ class Task
   end
 
   def to_s
-    "#{@id}. #{@task} -- Complete: #{@completed}"
-  end
-
-  def write_task_to_csv
-    CSV.open("todo.csv", "ab") do |csv|
-    csv << [task]
-    end
+    "#{@id}. #{@task}"
   end
 
 end
-
-
-# test = Task.new(task: ["Go to the gym"])
-# puts test
