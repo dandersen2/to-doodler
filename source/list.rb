@@ -1,9 +1,9 @@
 require_relative 'task'
 
 class List
-attr_reader :tasks
+attr_accessor :tasks
 
-def initialize(tasks)
+def initialize
   @tasks = []
 end
 

@@ -7,7 +7,7 @@ require_relative 'task'
 class ListParser
 attr_reader :csv_file
 
-  def initialize (csv_file)
+  def initialize(csv_file)
     @csv_file = csv_file
   end
 
@@ -23,11 +23,14 @@ end
 
 def list_parser
   read_csv = CSV.read(@csv_file,:headers=>true, :header_converters=>:symbol)
+  # binding.pry
   read_csv.map{|row| Task.new(row.to_hash)}
+  # binding.pry
 end
 
 end
 
-to_do = ListParser.new("/Users/apprentice/Desktop/ruby-todos-1-0-core-features-challenge/source/todo.csv")
-to_do.list_parser
 
+
+p tasks = ListParser.new("/Users/apprentice/Desktop/ruby-todos-1-0-core-features-challenge/source/todo.csv")
+p tasks.list_parser
