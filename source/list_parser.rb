@@ -1,4 +1,4 @@
-require 'pry'
+
 require 'csv'
 # require 'date'
 
@@ -31,4 +31,4 @@ class ListParser
  sample_list = ListParser.new("todo.csv")
  sample_list.parse
 
-binding.pry
+

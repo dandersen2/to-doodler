@@ -13,6 +13,7 @@
 
 require 'pry'
 require 'csv'
+require_relative 'task'
 
 # require 'date'
 
@@ -22,55 +23,52 @@ class ToDo
 
   def initialize(file)
     @file = file
-    @task_has = {}
-     #@task_array = []
+     @task_array = []
   end
 
   def parse_list
    CSV.foreach(self.file) do |row|
-      row.each do |task|
-        num = 0
-        @task_hash[num+1] = task
-      #@task_array << task
+      row.each do |description|
+        #make task obj using description
+        #take that obj and pass it to the a self.add_task call
+        #done
+      @task_array << description = self.add_task#make a task and feed it the description
       end
     end
-  @task_hash
   end
 
-  def add_task
-    @task_array.push(Task.new.task.join)
+  def add_task#if you call this in the parse then you probably need inpout, that input would be a task obj that you are adding???
+    @task_array.push(Task.new)
     #p @task_array
   end
 
-  # def delete_task
-  #   task_to_delete = ARGV
-  #   @task_array.delete(task_to_delete)
-  # end
 
-
-  def print_list
-    puts @task_hash
+  def to_s
+    p @task_array
   end
 end
 
-class Task
-  attr_reader :task
-  def initialize
-    @task = ARGV
-  end
-
-  def print
-    @task = self.task.join
-  end
-
-end
-
-
-sample_list = ToDo.new("todo.csv")
-sample_list.parse_list
-sample_list.print_list
 
 
 
-binding.pry
+# class Task
+#   attr_reader :task
+#   def initialize
+#     @task = ARGV
+#   end
+
+#   def print
+#     @task = self.task.join
+#   end
+
+# end
+
+
+
+# sample_list = ToDo.new("todo.csv")
+# sample_list.parse_list
+# sample_list.print_list
+
+
+
 
