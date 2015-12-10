@@ -11,7 +11,8 @@
 require 'csv'
 require_relative 'ListParser'
 require 'byebug'
-# require 'byebug'
+require_relative 'controller'
+
 
 include ListParser
 
@@ -19,7 +20,7 @@ class List
 attr_reader :list
 
   def initialize
-    @list = []
+    @list = build_list
   end
 
   def add(task_string)
@@ -55,60 +56,5 @@ attr_reader :task
 end
 
 
-  todo = List.new
-  my_task = "Visit doctor"
 
-  todo.add(my_task)
-  p todo.to_s
-  puts todo
-  puts todo.to_s.class
-  puts todo.to_s == "1. Visit doctor"
-
-
-# class Controller
-
-#   def initialize
-#     @list = List.new(build_list)
-#     @view = View.new()
-#     #run_interface
-#   end
-
-#  Parse the todo.csv file and wrap each entry in easier-to-manipulate
-# Ruby objects
-#   CSV.foreach(read in file)
-
-
-
-#   def run_interface
-#     based on input, this function is called
-#     Use command line args to take appropriate action in controller class, interpret argument as one of the functions
-
-#   Call functions to modify list
-
-#   if no input file given, default to filename todo.csv
-
-#   end
-# end
-
-
-# class View
-
-#   def get_input
-
-#   end
-
-#   def display(output)
-#     puts output
-#   end
-#       Display list to user
-#   print list to user using a puts function
-#   end
-# end
-
-
-#   Parse the command-line arguments
-#   in view class, take argument and feed to controller file
-
-
-# end
 

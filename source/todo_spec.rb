@@ -1,5 +1,5 @@
 require_relative 'todo.rb'
-describe List do
+describe Tasks do
   let(:task_string) {"Visit doctor"}
   let(:new_task) {Task.new(task_string)}
 
@@ -16,7 +16,6 @@ describe List do
   end
 
 end
-
 
 
 describe List do
@@ -60,5 +59,13 @@ describe List do
   end
 end
 
+describe Controller do
+  let(:args) {["delete", 1]}
 
+  describe '#list' do
+  end
+
+
+
+end
 
