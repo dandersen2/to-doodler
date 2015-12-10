@@ -1,3 +1,48 @@
+require_relative 'todo_parser'
+
+class ToDo
+  attr_reader :task_id
+  attr_writer :completed
+
+  def initialize(parsed_todo)
+    @completed = []
+    # @task_id = parsed_todo.fetch(:task_id, "0000" )
+    @task_id = 345
+    # @task_content = parsed_todo.fetch(:content, "No content assigned to this task yet!")
+    @task_content = ""
+    # self.completed = false
+    # @parsed_list = parsed_todo.fetch()
+  end
+
+  def completed(task_id)
+
+    #moves the task (provided in the argument) to a completed tasks data structure
+    # Note!: This will require changing the format of todo.csv and the code that parses it.
+    # IDEA: take an array called complete that is included in the pretty printed version and just put an X into it instead of a " " empty space ???
+  end
+
+  def completed?(task_id)
+    if @completed.include?("X")
+      true
+    else
+      false
+    end
+  end
+
+  def combine_checkbox_and_content
+    [self.completed, self.task_id, self.task_content]
+  end
+
+  def to_s
+    "#{@task_content}"
+  end
+
+end
+
+
+
+
+
 # What classes do you need?
 
 # Remember, there are four high-level responsibilities, each of which have multiple sub-responsibilities:
