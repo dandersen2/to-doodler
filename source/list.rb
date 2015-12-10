@@ -16,13 +16,13 @@ class List
   def add(task)
     self.tasks << Task.new(task)
     TaskParsable.rewrite(self.tasks)
-
+    "Added \"#{task.to_s} to list...\""
   end
 
   def delete(task_number)
     deleted_task = self.tasks.delete_at(task_number - 1)
     TaskParsable.rewrite(self.tasks)
-    "Deleted \"#{deleted_task.to_s}\" from you TODO list..."
+    "Deleted \"#{deleted_task.to_s[4..-1]}\" from your TODO list..."
   end
 
 ##########TRY TO
@@ -48,39 +48,5 @@ class List
       list_string << (index+1).to_s + ". " +  task.to_s  + "\n"
     end
     list_string
-  end
-end
-
-class Task
-  # attr_reader
-  attr_accessor :status, :task, :check_box
-
-  def initialize(task)
-    # @task_id = task_id
-    @task = task
-    @status = false
-    if !(self.task.include?("[ ]") || self.task.include?("[X]"))
-      self.task = "[ ] " + self.task
-      self.status = true
-    end
-  end
-
-  def update_check_box
-    self.check_box = "[X] " if @status == true
-    self.task.gsub!("[ ]", "[X]")
-  end
-
-  def complete
-    self.status = true
-    self.update_check_box
-    # self.task.gsub("[ ]", "[X]")
-  end
-
-  # def format_task
-
-  # end
-
-  def to_s
-    self.task
   end
 end

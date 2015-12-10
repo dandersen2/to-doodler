@@ -11,7 +11,6 @@ module TaskParsable
   end
 
   def self.rewrite(array)
-
     CSV.open('todo.csv', 'wb') do |file|
       array.each{|row| file << [row]}
     end
