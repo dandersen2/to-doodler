@@ -1,3 +1,4 @@
+require 'pry'
 ARGV.inspect
 require_relative 'task_parser'
 require_relative 'task'
@@ -5,6 +6,7 @@ require_relative 'list'
 require_relative 'view'
 
 class Controller
+attr_reader :list
 
   def initialize
     @list = List.new(TaskParser.parse('todo.csv'))
@@ -14,25 +16,26 @@ class Controller
 
   def run_interface
     input = ''
-    @view.show_welcome_msg
-    sleep(1)
-      if @list.tasks.empty?
-        @view.display("Your list is empty! Add to it by typing in 'add' and then your task.")
-      else
-        @view.display(@list)
-      end
 
-    # until input == 'exit'
-    if input.ARGV[0]='add'
-      self.list.add(ARGV[1])
-      @view.display(@list)
+    if @list.tasks.empty?
+      @view.display("Your list is empty! Add to it by typing in 'add' and then your task.")
     end
-    # end
-    @view.display("Seeya")
+
+    if ARGV[0] == 'list'
+      @view.display(self.list)
+    elsif ARGV[0] == 'add'
+      self.list.add(ARGV[1..-1].join(' '))
+      @view.display(self.list)
+    elsif ARGV[0] == 'delete'
+      self.list.delete(ARGV[1..-1].join(' '))
+      @view.display(self.list)
+    elsif ARGV[0] == 'complete'
+      self.list.complete(ARGV[1..-1].join(' '))
+      @view.display(self.list)
+    else
+      @view.display("Sorry, I don't understand that command.")
+    end
   end
-
-
-
 end
 
 Controller.new

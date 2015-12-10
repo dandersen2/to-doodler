@@ -11,18 +11,20 @@ class List
     @tasks = args
   end
 
-  def add(args)
+  def add(task)
     self.tasks << task
-    self.tasks = TaskParser.new(self.tasks, 'todo.csv')
+    TaskParser.save(self.tasks, 'todo.csv')
   end
 
   def delete(task_number)
-    self.tasks.delete_at(task_number)
+    self.tasks.delete_at((task_number.to_i) - 1)
+    TaskParser.save(self.tasks, 'todo.csv')
   end
 
-  # def complete(task)
-  #   self.tasks.task.completed? = true
-  # end
+  def complete(task_number)
+    self.tasks[task_number.to_i].complete_task
+    TaskParser.save(self.tasks, 'todo.csv')
+  end
 
   def to_s
     list_string = ''
