@@ -28,10 +28,18 @@ class TaskList
   def delete(task_id)
     self.list.each do |task_object|
       if task_object.task_id == task_id
-       task_object.delete()
+       list.delete(task_object)
+      end
     end
     #deleted the task with the given task_id from the task list named task_list_name
+  end
 
+  def complete(task_id)
+    self.list.each do |task_object|
+      if task_object.task_id == task_id
+       task_object.completed = true
+      end
+    end
   end
 
   def length
@@ -60,9 +68,9 @@ class TaskList
     counter = 0
     @list.each do |task|
       if @completed
-        counter + "[ ]" + task
-      else
         counter + "[X]" + task
+      else
+        counter + "[ ]" + task
         # " #{self.counter} [X]" + task
       end
       counter += 1

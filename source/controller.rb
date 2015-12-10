@@ -14,6 +14,7 @@ class Controller
     if input == "add"
       @viewer.display(my_todo_list.add(ARGV.drop(1).join(" ")))
     elsif input == "delete"
-      @viewer.display(my_todo_list.delete(ARGV.drop(1)))
-
+      @viewer.display(my_todo_list.delete(ARGV[1]))
+    elsif input == "complete"
+      @viewer.display(my_todo_list.complete(ARGV[1]))
 
