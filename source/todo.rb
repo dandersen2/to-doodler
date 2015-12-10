@@ -23,12 +23,23 @@ DEFINE class 'TerminalView'
 
 DEFINE class 'TodoList'
 	CREATE array 'tasks_todo'
+	CREATE boolean 'is_ordered'
+	CREATE boolean 'is_complete'
 
 	DEFINE function 'add_new_task' which has one parameter: 'task'
 		ADD 'task' to 'tasks_todo'
 	
 	DEFINE function 'tasks_todo'
 		RETURN 'tasks_todo'
+
+	DEFINE function 'check_completion'
+		ITERATE over 'tasks_todo'
+			CALL 'TodoListTask' function 'is_complete?' on current element
+				IF false
+					SET is_complete to be false
+
+	DEFINE function 'is_complete?'
+		RETURN 'is_complete'
 
 	DEFINE function 'generate_task_from_csv'
 		CREATE array 'csv_tasks'
@@ -41,6 +52,7 @@ DEFINE class 'TodoList'
 
 DEFINE class 'TodoListTask'
 	CREATE string 'task_descrip'
+	CREATE integer 'task_order_num'
 	CREATE boolean 'is_complete'
 
 	DEFINE function 'is_complete?'
@@ -51,20 +63,37 @@ require 'csv'
 require 'pry'
 
 class TodoList
+	attr_reader :title
+
+	def initialize(args)
+		@title = args.fetch(:title, nil)
+		@is_ordered = args.fetch(:is_ordered, true)
+		create_new_csv_file(@title)
+	end
+
+	def create_new_csv_file(file_path)
+		CSV.open('file_path', 'w') do |csv|
+			csv << self.tasks_todo
+		end
+	end
 
 	def add_new_task
+	end
+
+	def is_ordered?
+		return @is_ordered
 	end
 
 	def tasks_todo
 		if @tasks_todo
 			return @tasks_todo
 		else
-			@tasks_todo = CSV.read('todo.csv').flatten
+			generate_task_from_csv
 		end
 	end
 
+	def generate_task_from_csv
+		@tasks_todo = CSV.read('todo.csv').flatten
+	end
+
 end
-
-binding.pry
-
-puts "done!"
