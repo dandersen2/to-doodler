@@ -23,18 +23,12 @@ require 'pry'
 
 module CSVParsable
  def get_tasks_from_csv(file)
+    tasks = []
     CSV.foreach(file) do |row|
-      @tasks << row
+    tasks << Task.new(row[0])
     end
+    tasks
   end
-
-def save_tasks_to_csv(file)
-  CSV.open(file, "w")
-    @tasks.each do |row|
-    file  <<  row
-    end
-  end
-
 end
 
 class List
@@ -43,27 +37,40 @@ class List
   include CSVParsable
 
   def initialize
-    @file = file
-    @tasks = []
+    @file = "todo.csv"
+    @tasks = get_tasks_from_csv(@file)
   end
 
-  def add(task_object)
-    self.tasks << task_object
-
+  def add(task)
+    @tasks << task
+    save_tasks_to_csv
   end
 
-  def list_tasks(tasks)
-    tasks.each do |task|
-    p tasks
-    # .join("" +"\n")
-    end
+  def save_tasks_to_csv
+   CSV.open("todo.csv", "w") do |csv|
+    @tasks.map {|task| csv << [task.name]}
+   end
+ end
 
+
+  def to_s
+   @tasks.map.with_index {|task, index| "#{index+1}[#{completion_status(task)}] + #{task.name}"}.join("\n")
+   end
+
+
+  def completion_status(task)
+      if task.complete
+        return "X"
+      else
+        return " "
+      end
   end
 
 
- # def delete_tasks
- #  tasks.delete_at((index.to_i.)+1)
- #  end
+  def delete(index)
+    @tasks.delete_at((index.to_i)-1)
+    save_tasks_to_csv
+  end
 
 end
 
@@ -71,70 +78,55 @@ class Task
   attr_accessor  :name, :complete
 
   def initialize(name)
-  @name = name
-  @complete = false
+    @name = name
+    @complete = false
   end
 
-  def mark_complete
-    if complete == "true"
-      puts ["X"]
-    else
-      [" "]
-   end
- end
+  def completed
+    @complete = true
+  end
 
 
 end
-
 
 class Controller
+  attr_reader  :list
+
   def initialize
     @list = List.new
-    @task = Task.new
     @view = View.new
-    run_todo
+    run
   end
 
+  def run_interface
+    if ARGV[0] == "list"
+       @view.show(@list)
 
+    elsif ARGV[0] == 'add'
+       @list.add(Task.new(ARGV[1..-1].join(" ")))
+       @view.show(@list)
 
+    elsif ARGV[0] == 'delete'
+       @list.delete(ARGV[1])
+       @view.show(@list)
 
-  # def run_todo
-  #   puts "Hello! Everything's doable!"
-  #   case
-  #   when input = "list"
-  #   @view.show_tasks
-  #   when input == ""
-  #     if input == true
-  #     @list.add
-  #       @view.display("xxxxxx")
-  #     else
-  #       @view.display("XXX") unless input == "exit"
-  #     end
-  #   end
-  #   @view.display("xxxxxx")
-  # end
-
+    elsif ARGV[0] == 'completed'
+       @list.tasks[(ARGV[1].to_i)-1].completed
+       @view.show(@list)
+    end
+  end
 
 end
-
 
 class View
 
-  def show_tasks(list)
+  def show(list)
     puts list
   end
-
-  def add_task(task)
-    gets.chomp
-  end
-
-  # def display_add_message
-  #   display("Please add a task")
-  #   if input == true
-
-  # end
-
 end
 
+
+controller = Controller.new
 list = List.new
-file = "todo.csv"
+
+
