@@ -8,14 +8,16 @@ require_relative 'view'
 # parsed_tasks = TaskParser.new
 # x = parsed_tasks.parse_tasks_from_file
 
-my_list = List.new
-p my_list
 
-walk_task = Task.new('walk the dog')
-p walk_task
+# TaskParser.parse('todo.csv')
+# new_list = List.new(TaskParser.parse('todo.csv'))
 
-my_list.add(walk_task)
-p my_list
+# p new_list.tasks.to_s
 
-my_list.delete(walk_task)
-p my_list
+TaskParser.parse('todo.csv')
+new_list = List.new(TaskParser.parse('todo.csv'))
+
+new_list.tasks
+
+puts new_list
+

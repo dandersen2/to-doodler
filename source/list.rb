@@ -1,8 +1,13 @@
+require 'pry'
+require 'csv'
+require_relative 'task_parser'
+require_relative 'task'
+
 class List
   attr_reader :tasks
 
   def initialize(args={})
-    @tasks = []
+    @tasks = args
   end
 
   def add(task)
@@ -16,6 +21,16 @@ class List
   # def complete(task)
   #   self.tasks.task.completed? = true
   # end
+
+  def to_s
+    # binding.pry
+    self.tasks.each_with_index do |task,i|
+      binding.pry
+      puts @task
+    end
+
+  end
+
 end
 
 # List.new(array_of_task_objects_built_from_our_csv_parser)
