@@ -43,12 +43,12 @@ class TodoList
 end
 
 class Task
-  attr_reader :task
+  attr_reader :task_id, :task
 
-  def initialize(text, index)
-    @task = text
-    @task_id = index + 1
-    @completed = false
+  def initialize(args = {})
+    @task_id = args[:task_id]
+    @task = args[:task] || "empty task"
+    @completed = args.fetch(:completed, false)
   end
 
 end
@@ -61,7 +61,7 @@ end
 
 def parse_tasks_objects_from_file(file)
   CSV.read(file).map.with_index do |row, index|
-  p Task.new(row, index)
+  p Task.new(task_id: index+1, task: row)
   end
 end
 
