@@ -1,15 +1,22 @@
 class View
-  attr_reader :file
+  attr_reader :file, :completed
 
   def initialize(file)
     @file = file
+    @completed = false
+  end
+
+  def completed!
+    @completed = true
   end
 
   def display
-    counter = 1
     file.flatten.each do |string_to_do|
-      p "#{counter}: #{string_to_do}"
-      counter += 1
+      if completed = false"\[ \]: #{string_to_do}"
+
+      elsif completed = true "\[X\]: #{string_to_do}"
+
+      end
     end
   end
 end

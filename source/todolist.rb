@@ -1,4 +1,3 @@
-require 'csv'
 require 'pry'
 require_relative 'parser'
 
@@ -29,7 +28,7 @@ class ToDoList
     raise ArgumentError.new("Only numbers present on the list may be used.")
     end
     p"congratulations on completing your task: #{file_as_array.flatten[number - 1].to_s}."
-    delete_from_list(number)
+    self.completed!
     save_changes
   end
 
