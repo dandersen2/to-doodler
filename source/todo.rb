@@ -17,9 +17,11 @@ DEFINE class 'Controller'
 		CALL 'TerminalView' function 'get_input'
 
 DEFINE class 'TerminalView'
-	
-	DEFINE function 'get_input'
-		RETURN user input
+
+	DEFINE function 'parse_user_input'
+		CREATE hash 'user_commands'
+			PASS first word to first key
+			PASS remaining input to second key
 
 DEFINE class 'TodoList'
 	CREATE array 'tasks_todo'
@@ -62,57 +64,7 @@ DEFINE class 'TodoListTask'
 		RETURN 'is_complete'
 
 =end
-require_relative 'todo_list_task'
-require 'csv'
-require 'pry'
 
-class TodoList
-	attr_reader :path
+require_relative 'controller'
 
-	def initialize(args)
-		@path = args.fetch(:path, nil)
-		@is_ordered = args.fetch(:is_ordered, true)
-		@tasks_todo = args.fetch(:tasks, nil)
-		@is_complete = false
-		create_new_csv_file(@path)
-	end
-
-	def create_new_csv_file(file_path)
-		CSV.open('file_path', 'w')
-	end
-
-	def is_complete?
-		self.tasks_todo.each do |task|
-			return false if task.is_complete == false
-		end
-	end
-
-	def complete_task(task)
-		task.is_complete = true
-	end
-
-	def add_new_task
-	end
-
-	def is_ordered?
-		return @is_ordered
-	end
-
-	def tasks_todo
-		if @tasks_todo
-			return @tasks_todo
-		else
-			generate_task_from_csv
-		end
-	end
-
-	private
-
-	def generate_task_from_csv
-		@tasks_todo = []
-		CSV.foreach(self.path) do |task|
-			@tasks_todo << TodoListTask.new(descrip: task)
-		end
-	end
-
-end
+Controller.new

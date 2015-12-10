@@ -1,1 +1,7 @@
-require_relative 'controller.rb'
+class TerminalView
+
+	def get_input
+		ARGV
+	end
+
+end
