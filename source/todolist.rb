@@ -1,27 +1,14 @@
 require 'csv'
 require 'pry'
+require_relative 'parser'
 
 class ToDoList
+  include Parser
   attr_reader :file, :file_as_array
 
   def initialize(file)
     @file = file
     @file_as_array = []
-  end
-
-  def read
-    CSV.foreach('todo.csv') do |row|
-      file_as_array.push(row)
-    end
-    file_as_array
-  end
-
-  def save_changes
-    CSV.open('todo.csv', 'w+') do |csv|
-      file_as_array.each do |row_to_convert_for_csv|
-        csv << row_to_convert_for_csv
-      end
-    end
   end
 
   def add_to_list(number = -1, string)
@@ -40,6 +27,7 @@ class ToDoList
   def complete(number)
     unless number >= 1 && number <= file_as_array.length
     raise ArgumentError.new("Only numbers present on the list may be used.")
+    end
     p"congratulations on completing your task: #{file_as_array.flatten[number - 1].to_s}."
     delete_from_list(number)
     save_changes
