@@ -11,12 +11,15 @@
 
 require 'pry'
 require 'csv'
+
 require_relative 'list'
 require_relative 'view'
+require_relative 'TaskParsable'
 
 
 
 class Controller
+  # include TaskParsable
   ARGV.inspect
   attr_reader :list, :view
 
@@ -31,13 +34,15 @@ class Controller
     if input[0] == 'add'
       task_string = input[1..-1].join(' ')
       self.list.add(task_string)
-      self.view.display(task_string)
+      # self.view.display(task_string)
     elsif input[0] == 'list'
       self.view.display(self.list.to_s)
     elsif input[0] == 'delete'
       self.view.display(self.list.delete(input[1].to_i))
     elsif input[0] == 'complete'
       self.view.display(self.list.complete_task(input[1].to_i))
+    elsif input[0] == 'delete_completed'
+      self.view.display(self.list.delete_completed)
     end
   end
 end
