@@ -5,6 +5,11 @@ require_relative 'task'
 class TaskParser
   attr_reader :file, :parsed_list, :list
 
+  #this attr_reader :list creates the following method:
+     # def list
+     #   @list      #!!!!!!!!! So now you can access it using the TaskParser.list method
+     # end
+
   def initialize(file)
     @file = file
     @parsed_list = []
@@ -22,7 +27,7 @@ class TaskParser
 
     end
     self.parsed_list.each do |task_content_string|
-      self.list << Task.new({task_content: task_content_string, task_id: rand.to_s[2..15].to_i})
+      self.list << Task.new({task_content: task_content_string, task_id: rand.to_s[2..6].to_i})
     end
     # binding.pry
     # (use this to check what is being shoveled into @parsed_list)

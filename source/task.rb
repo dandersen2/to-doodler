@@ -1,13 +1,13 @@
 require_relative 'task_parser'
 
 class Task
-  attr_reader :task_id
+  attr_reader :task_id, @content
   attr_writer :completed
 
   def initialize(args = {})
     self.completed  = false
-    @task_content = args.fetch(:task_content)
-    @task_id = args.fetch(:task_id)
+    @task_content = args.fetch(:task_content, "")
+    @task_id = args.fetch(:task_id, 0)
     # @completed = []
     # @task_id = parsed_todo.fetch(:task_id, "0000" )
     # @task_id = 345
