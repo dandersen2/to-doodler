@@ -3,7 +3,6 @@ require 'pry'
 require_relative 'list'
 require_relative 'task'
 
-
 class ListParser
 attr_reader :csv_file
 
@@ -19,7 +18,6 @@ def list
   end
 end
 
-# private
 
 def list_parser
   read_csv = CSV.read(@csv_file,:headers=>true, :header_converters=>:symbol)
