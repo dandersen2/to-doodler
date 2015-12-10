@@ -18,7 +18,6 @@ def list
   end
 end
 
-
 def list_parser
   read_csv = CSV.read(@csv_file,:headers=>true, :header_converters=>:symbol)
   read_csv.map{|row| Task.new(row.to_hash)}

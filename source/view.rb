@@ -13,15 +13,15 @@ class View
   end
 
   def display_add_task
-    puts "Thanks for adding a task"
+    puts "Describe your task:"
   end
 
   def display_update_task
-    puts "Thanks for updating your task"
+    puts "Type the number of the task you completed"
   end
 
   def display_delete_task
-    puts "Thanks for updating your task"
+    puts "Type the number of the task want to delete"
   end
 
   def display_welcome_message
