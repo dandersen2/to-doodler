@@ -34,27 +34,8 @@
 # Parse CSV data so that it can easily be accessed when asking for all items on the to-do list
 #
 
-#   def run_interface
-#     input = ""
-#     @view.display_to_do_list
-#     until input == "exit"
-#       input = @view.get_input
-#     end
-# end
 
 # end
 
 
-# class View
-#   def display(output)
-#     puts output
-#   end
 
-#   def get_input
-#     gets.chomp
-#   end
-
-#   def display_to_do_list
-#     display("Here's your To_do List")
-#   end
-# end

@@ -23,14 +23,10 @@ end
 
 def list_parser
   read_csv = CSV.read(@csv_file,:headers=>true, :header_converters=>:symbol)
-  # binding.pry
   read_csv.map{|row| Task.new(row.to_hash)}
-  # binding.pry
-end
 
 end
 
+end
 
 
-# p tasks = ListParser.new("/Users/apprentice/Desktop/ruby-todos-1-0-core-features-challenge/source/todo.csv")
-# p tasks.list_parser
