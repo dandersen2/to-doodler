@@ -9,9 +9,15 @@ module Doable
     save
    end
 
-   def done(task)
-
+   def done(done_task)
+      self.to_dos.each do |task|
+        if task.to_do == done_task
+          task.completed
+        end
+      end
+      save
    end
+
    def delete_first_task
     self.to_dos.shift
     save
