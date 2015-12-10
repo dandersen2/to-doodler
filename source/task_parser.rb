@@ -5,8 +5,17 @@ require_relative 'list'
 
 
 module TaskParser
+  def self.save(tasks_list, file)
+    tasks_list.each do |task|
+      CSV.open(file, 'a+') do |csv|
+        csv << task
+      end
+    end
+    tasks_list
+  end
+
   def self.parse(file)
-    CSV.read(file).map { |task_row| Task.new(task_row) }
+    CSV.read(file, 'a+').map { |task_row| Task.new(task_row[0]) }
   end
 end
 

@@ -12,8 +12,7 @@ class Task
   end
 
   def to_s
-    # binding.pry
-    @task
+    "#{@task}"
   end
 end
 

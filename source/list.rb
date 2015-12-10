@@ -1,3 +1,4 @@
+ARGV.inspect
 require 'pry'
 require 'csv'
 require_relative 'task_parser'
@@ -10,12 +11,13 @@ class List
     @tasks = args
   end
 
-  def add(task)
+  def add(args)
     self.tasks << task
+    self.tasks = TaskParser.new(self.tasks, 'todo.csv')
   end
 
-  def delete(task)
-    self.tasks.delete(task)
+  def delete(task_number)
+    self.tasks.delete_at(task_number)
   end
 
   # def complete(task)
@@ -23,14 +25,10 @@ class List
   # end
 
   def to_s
-    # binding.pry
+    list_string = ''
     self.tasks.each_with_index do |task,i|
-      binding.pry
-      puts @task
+      list_string += "#{i+1}. #{task}\n"
     end
-
+    list_string
   end
-
 end
-
-# List.new(array_of_task_objects_built_from_our_csv_parser)
