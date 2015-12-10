@@ -4,7 +4,7 @@ class Task
 
   def initialize(task)
     @task = task
-    self.completed = [ ]
+    self.completed = '[ ]'
   end
 
   def completed?
@@ -12,8 +12,7 @@ class Task
   end
 
   def complete_task
-    @completed = [X]
-    @task += ' -- completed'
+    @completed = '[X]'
   end
 
   def to_s

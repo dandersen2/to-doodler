@@ -8,7 +8,10 @@ module TaskParser
   def self.save(tasks_list, file)
     CSV.open(file, 'wb') do |csv|
       tasks_list.each do |task|
-        csv << [task.to_s]
+        binding.pry
+        if task.completed? == '[ ]'
+          csv << [task.completed?] + [task.to_s]
+        end
       end
     end
   end

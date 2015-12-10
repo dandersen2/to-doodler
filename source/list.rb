@@ -22,14 +22,15 @@ class List
   end
 
   def complete(task_number)
-    self.tasks[task_number.to_i].complete_task
+    self.tasks[(task_number.to_i) - 1].complete_task
     TaskParser.save(self.tasks, 'todo.csv')
   end
 
   def to_s
     list_string = ''
     self.tasks.each_with_index do |task,i|
-      list_string += "#{i+1}. #{task}\n"
+      # binding.pry
+      list_string += "#{i+1}. #{task.completed?} #{task}\n"
     end
     list_string
   end
