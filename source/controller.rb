@@ -11,36 +11,60 @@ class Controller
   end
 
   def start
-    @viewer.intro_message
-    option = @viewer.gets_input
-    # option = "1" #TRIAL VALUES
-    if option == "1"
-      # @viewer.add_file_message
-      # file = @viewer.gets_input
-      create_list('todo.csv')
-      # create_list(file)
-    elsif option == "2"
-      create_list
-      add_task
-      add_task
-      add_task
-      print_list
-      delete_task
-      print_list
-      complete_task
-      print_list
-      store_file
-    else
-      @viewer.error_message
+    option = ""
+    until option == "exit" do
+      @viewer.intro_message
+      option = @viewer.gets_input.downcase
+      if option == "1"
+        @viewer.add_file_message
+        file = @viewer.gets_input
+        mod_file(create_list('todo.csv'))
+        break
+      elsif option == "2"
+        mod_file(create_list)
+        break
+      elsif option == "exit"
+      else
+        @viewer.error_message
+      end
+    end
+  end
+
+  def mod_file(file)
+    option = ""
+    @viewer.options_intro_message
+    @viewer.options_message
+    until option == "exit" do
+      option = @viewer.gets_input.downcase if option == ""
+      case option
+      when "add"
+        add_task
+      when "delete"
+        delete_task
+      when "complete"
+        complete_task
+      when "print"
+        print_list
+      when "store"
+        store_file
+      when "exit"
+        break
+      else
+        @viewer.error_message
+      end
+      @viewer.options_end_message
+      option = @viewer.gets_input.downcase
+      break if option == "n" || option == "exit"
     end
   end
 
   def create_list(file="")
     @new_list = List.new(file)
+    parse_list if file != ""
   end
 
   def parse_list
-    @new_list.parse_tasks_from_file if @newlist.file != ""
+    @new_list.parse_tasks_from_file
   end
 
   def add_task
@@ -51,33 +75,29 @@ class Controller
 
   def delete_task
     @viewer.delete_task_message
-    deleted_task = @viewer.gets_input
+    deleted_task = @viewer.gets_input.downcase
     @new_list.delete_task(deleted_task)
   end
 
   def print_list
-    p "PRINTING LIST"
-    @new_list.to_s
+    @viewer.space
+    @viewer.list_title
+    list_print =  @new_list.to_s #CHANGED THIS
+    puts list_print
   end
 
   def complete_task
+    @viewer.space
+    print_list
     @viewer.complete_task_message
-    completed_task = @viewer.gets_input
+    completed_task = @viewer.gets_input.downcase
     @new_list.complete_task(completed_task)
   end
 
   def store_file
-    list = []
-    list << @new_list.task_listing
-    CSV.open("Todo_List.csv", "wb") do |csv|
-      list.each do |list_element|
-      csv << list_element
-    end
-  end
-  end
+    @new_list.save_list
   end
 
-  runner = Controller.new
-  runner.start
+end
 
 

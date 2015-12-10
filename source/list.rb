@@ -1,27 +1,26 @@
 require 'pry'
 require 'csv'
+require_relative 'parser'
 
 class List
   attr_reader :file, :task_list
+
+  include Parsater
 
   def initialize(file = "")
     @file = file
     @task_list = []
   end
 
-  def task_listing
+  def list_tasks
     list = []
     @task_list.each do |list_element|
       list << list_element.to_s
     end
-    list
   end
 
   def parse_tasks_from_file
-    CSV.foreach(@file) do |task|
-      # binding.pry
-      @task_list << Task.new(task)
-    end
+      @task_list << parse_csv(@file)
   end
 
   def add_task(task)
@@ -29,36 +28,39 @@ class List
   end
 
   def delete_task(task)
-    @task_list.delete_if {|list_element| list_element.task == task }
+    @task_list.delete_if {|list_element| list_element.task.downcase == task }
   end
 
   def complete_task(task)
     @task_list.each do |list_element|
-      list_element.complete ="[x]" if list_element.task==task
+      list_element.complete ="[x]" if list_element.task.downcase==task
     end
   end
 
+  def save_list
+    list = self.list_tasks
+    save_csv(list)
+  end
+
   def to_s
-    p "----TODO LIST-----"
     @task_list.each do |task|
-      # binding.pry
       task.to_s
     end
-    p "------------------"
   end
 
 end
 
 class Task
-  attr_reader :task
+  attr_reader :task, :num
   attr_accessor :complete
 
-  def initialize(task)
+  def initialize(task,num="")
     @complete = "[ ]"
     @task = task
+    @num = num
   end
 
   def to_s
-    p "#{task},#{complete}"
+    "#{num}.#{task},#{complete}"
   end
 end

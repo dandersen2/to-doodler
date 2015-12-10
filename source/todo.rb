@@ -1,3 +1,5 @@
+require_relative 'controller'
+
 # What classes do you need?
 
 # Remember, there are four high-level responsibilities, each of which have multiple sub-responsibilities:
@@ -13,6 +15,6 @@
 
 # ________________________CODE______________________________________________________________
 
-
-
+runner = Controller.new
+runner.start
 
