@@ -1,4 +1,5 @@
 require 'csv'
+require 'pry'
 
 class ToDoList
   attr_reader :file, :file_as_array
@@ -16,8 +17,32 @@ class ToDoList
   end
 
   def save_changes
-    CSV.open('updated_copy.csv', 'w+') do |csv|
-      csv_str = file_as_array.inject([]) { |csv, row| csv << CSV.generate_line(row)}
+    CSV.open('todo.csv', 'w+') do |csv|
+      file_as_array.each do |row_to_convert_for_csv|
+        csv << row_to_convert_for_csv
+      end
     end
   end
+
+  def add_to_list(number = -1, string)
+    file_as_array.insert(number, [string]).to_a
+    save_changes
+  end
+
+  def delete_from_list(number)
+    unless number >= 1 && number <= file_as_array.length
+    raise ArgumentError.new("Only numbers present on the list may be used.")
+    end
+    file_as_array.delete_at(number - 1)
+    save_changes
+  end
+
+  def complete(number)
+    unless number >= 1 && number <= file_as_array.length
+    raise ArgumentError.new("Only numbers present on the list may be used.")
+    p"congratulations on completing your task: #{file_as_array.flatten[number - 1].to_s}."
+    delete_from_list(number)
+    save_changes
+  end
+
 end

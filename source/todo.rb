@@ -2,10 +2,6 @@ require 'csv'
 require 'pry'
 require_relative 'view'
 require_relative 'todolist'
-# What classes do you need?
-
-# controller - add, save, delete,
-
 # Remember, there are four high-level responsibilities, each of which have multiple sub-responsibilities:
 # 1. Gathering user input and taking the appropriate action (controller)
 
@@ -35,8 +31,16 @@ class Controller
     self.list_displayed.display
   end
 
-  def save
-    self.to_do_list.save_changes
+  def add(string)
+    self.to_do_list.add_to_list(string)
+  end
+
+  def delete(number)
+    self.to_do_list.delete_from_list(number)
+  end
+
+  def complete(number)
+    self.to_do_list.complete(number)
   end
 
 end
