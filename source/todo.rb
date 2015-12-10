@@ -35,7 +35,9 @@ class Controller
     elsif input[0] == 'list'
       self.view.display(self.list.to_s)
     elsif input[0] == 'delete'
-
+      self.view.display(self.list.delete(input[1].to_i))
+    elsif input[0] == 'complete'
+      self.view.display(self.list.complete_task(input[1].to_i))
     end
   end
 end

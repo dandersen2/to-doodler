@@ -28,25 +28,43 @@ class List
     # end
   end
 
-  def delete(task)
-    self.tasks.
+  def delete(task_number)
+    deleted_task = self.tasks.delete_at(task_number - 1)
+    "Deleted \"#{deleted_task.to_s}\" from you TODO list..."
+  end
+
+  def complete_task(task_number)
+    self.tasks[task_number-1].complete
+    "Completed \"#{tasks[task_number-1].to_s}"
   end
 
   def to_s
     list_string = ''
-    self.tasks.each_with_index do |line, index|
-      list_string << (index+1).to_s + ". " + line.to_s + "\n"
+    self.tasks.each_with_index do |task, index|
+      list_string << (index+1).to_s + ". "
+      if task.status
+        list_string << "[X]  "
+      else
+        list_string << "[ ]  "
+      end
+      list_string << task.to_s + "\n"
     end
     list_string
   end
 end
 
 class Task
-  attr_reader :task #:task_id
+  attr_reader :task
+  attr_accessor :status
 
   def initialize(task)
     # @task_id = task_id
     @task = task
+    @status = false
+  end
+
+  def complete
+    self.status = true
   end
 
   def to_s
