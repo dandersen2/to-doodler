@@ -10,7 +10,7 @@ attr_reader :file, :to_dos, :each_task
     @to_dos = []
   end
 
-  def add_list
+  def add_list #parserwe are not good friends yet CSV
     csv_file = CSV.read(@file)
      csv_file.each do |row |
       row.each do
@@ -22,9 +22,19 @@ attr_reader :file, :to_dos, :each_task
     end
    end
 
+   def delete(task)
+    self.to_dos.delete_if { |task| task.to_do == task }
+    # self.to_dos.delete_if { |hash| hash[:to_do] == task }
+   end
+
+   def add(args = {})
+    self.to_dos << Task.new(args)
+   end
+
 end
 
 list = List.new('source/todo.csv')
 list.add_list
 binding.pry
 p list
+
