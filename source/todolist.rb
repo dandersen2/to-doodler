@@ -3,11 +3,12 @@ require_relative 'parser'
 
 class ToDoList
   include Parser
-  attr_reader :file, :file_as_array
+  attr_reader :file, :file_as_array, :complete
 
   def initialize(file)
     @file = file
     @file_as_array = []
+    @complete = false
   end
 
   def add_to_list(number = -1, string)
@@ -28,7 +29,6 @@ class ToDoList
     raise ArgumentError.new("Only numbers present on the list may be used.")
     end
     p"congratulations on completing your task: #{file_as_array.flatten[number - 1].to_s}."
-    self.completed!
     save_changes
   end
 

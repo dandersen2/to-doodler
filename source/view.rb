@@ -12,10 +12,10 @@ class View
 
   def display
     file.flatten.each do |string_to_do|
-      if completed = false"\[ \]: #{string_to_do}"
-
-      elsif completed = true "\[X\]: #{string_to_do}"
-
+      if completed == false
+        p "\[ \]: #{string_to_do}"
+      elsif completed == true
+        "\[X\]: #{string_to_do}"
       end
     end
   end
