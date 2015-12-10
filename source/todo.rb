@@ -1,10 +1,8 @@
-require 'pry'
-
 require 'CSV'
 require_relative 'task_list'
 require_relative 'view'
 
-class Todo #CONTROLLER
+class Todo
 
   def initialize
     @tdl = TaskList.new
@@ -26,7 +24,6 @@ class Todo #CONTROLLER
       @view.display("Sorry, not a valid command")
     end
   end
-
 end
 
 Todo.new
