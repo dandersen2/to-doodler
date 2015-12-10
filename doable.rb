@@ -12,7 +12,7 @@ module Doable
    def done(done_task)
       self.to_dos.each do |task|
         if task.to_do == done_task
-          task.completed
+          task.complete
         end
       end
       save

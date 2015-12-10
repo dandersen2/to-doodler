@@ -11,7 +11,7 @@ class Task
     @date_added = Time.now
   end
   def complete
-    @complete = true
+    @completed = true
   end
 
 end
