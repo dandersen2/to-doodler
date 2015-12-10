@@ -6,8 +6,8 @@ module Utilities
   #     @list ||= parse_tasks_objects_from_file(file)
   # end
 
-  def parse_tasks_objects_from_file(file)
-    CSV.read(file).map.with_index do |row, index|
+  def parse_tasks_objects_from_file
+    CSV.read('todo.csv').map.with_index do |row, index|
     Task.new(id: index+1, task: row.join)
     end
   end
@@ -18,8 +18,10 @@ module Utilities
     end
   end
 
-  def delete_task_from_file(task_number)
-    CSV.
+  def delete_task_from_file(id)
+    CSV.open('todo.csv', 'a').map.with_index do |row, index|
+    row.delete_if {index + 1 == id}
+    end
   end
 end
 

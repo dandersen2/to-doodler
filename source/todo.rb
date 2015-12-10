@@ -20,7 +20,7 @@ class Todo #CONTROLLER
       @tdl.add(ARGV[1])
       @view.display('Success! You added: '+ ARGV[1])
     when 'delete'
-      @tdl.delete_by_id(ARGV[1].to_i)
+      @tdl.delete(ARGV[1].to_i)
       @view.display(@tdl.list)
     else
       @view.display("Sorry, not a valid command")

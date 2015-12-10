@@ -7,7 +7,7 @@ class TaskList
   attr_reader :list
 
   def initialize
-    @list = parse_tasks_objects_from_file('todo.csv')
+    @list = parse_tasks_objects_from_file
   end
 
   def add(task_info)
@@ -15,8 +15,9 @@ class TaskList
     write_new_task_to_file(task_info)
   end
 
-  def delete_by_id(id)
+  def delete(id)
     list.delete_if { |task| task.id == id }
+    delete_task_from_file(id)
   end
 
 end
