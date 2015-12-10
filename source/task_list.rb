@@ -12,12 +12,14 @@ class TaskList
 
   def add(task_info)
     list << Task.new(task: task_info)
-    write_new_task_to_file(task_info)
+    save_tasks_to_file(list)
+    # write_new_task_to_file(task_info)
   end
 
   def delete(id)
     list.delete_if { |task| task.id == id }
-    delete_task_from_file(id)
+    save_tasks_to_file(list)
+    # delete_task_from_file(id)
   end
 
 end
