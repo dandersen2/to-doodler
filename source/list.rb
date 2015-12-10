@@ -4,12 +4,14 @@ require_relative 'parser'
 
 class List
   attr_reader :file, :task_list
+  attr_accessor :num_of_tasks
 
   include Parsater
 
   def initialize(file = "")
     @file = file
     @task_list = []
+    @num_of_tasks = 0
   end
 
   def list_tasks
@@ -21,10 +23,11 @@ class List
 
   def parse_tasks_from_file
       @task_list << parse_csv(@file)
+      @num_of_tasks = (task_list.length-1)
   end
 
   def add_task(task)
-    @task_list << Task.new(task)
+    @task_list << Task.new(task,@num_of_tasks+1)
   end
 
   def delete_task(task)
