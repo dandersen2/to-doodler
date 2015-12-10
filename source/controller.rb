@@ -44,13 +44,16 @@ class Controller
 			self.display_list
 		elsif user_command == 'add'
 			self.add_new_task(user_params)
-			@terminal.show_add_message('')
+			task_descrip = ''
+			@terminal.show_add_message(task_descrip)
 		elsif user_command == 'delete'
+			task_descrip = @rockys_list.tasks_todo[user_params.to_i - 1].descrip
 			self.delete_task(user_params)
-			@terminal.show_delete_message('')
+			@terminal.show_delete_message(task_descrip)
 		elsif user_command == 'complete'
+			task_descrip = @rockys_list.tasks_todo[user_params.to_i - 1].descrip
 			self.complete_task(user_params)
-			@terminal.show_complete_message('')
+			@terminal.show_complete_message(task_descrip)
 		else
 			self.send_error_message
 		end

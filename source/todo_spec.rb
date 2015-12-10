@@ -41,9 +41,12 @@ describe Controller do
 
 	describe '#complete_task' do
 		it 'changes the "is_complete" boolean of the task to true' do
-			test_controller.complete_task(0)
+			test_controller.complete_task(1)
 			expect(task_1_complete?).to be true
 		end
+	end
+
+	describe '#update_list' do
 	end
 
 end

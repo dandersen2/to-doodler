@@ -4,11 +4,20 @@ class TodoListTask
 	def initialize(args)
 		@descrip = args.fetch(:descrip, '')
 		@num = args.fetch(:num, 0)
-		@is_complete = false
+		if @descrip.include?('[X]')
+			@is_complete = false
+		else
+			@is_complete = true
+		end
 	end
 
 	def descrip
-		@descrip
+		if self.is_complete?
+			complete_tag = "X"
+		else
+			complete_tag = " "
+		end
+		"#{self.num}. [#{complete_tag}] #{@descrip}\n"
 	end
 
 	def is_complete?

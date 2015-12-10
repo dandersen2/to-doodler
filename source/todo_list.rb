@@ -25,15 +25,7 @@ class TodoList
 	end
 
 	def to_s
-		list_of_tasks = self.tasks_todo.map do |task|
-			if task.is_complete?
-				complete_tag = "X"
-			else
-				complete_tag = " "
-			end
-			"#{task.num}. [#{complete_tag}] #{task.descrip}\n"
-		end
-		list_of_tasks.join
+		tasks_todo.map{|task| task.descrip}.join
 	end
 
 	def add_new_task(task_args)
