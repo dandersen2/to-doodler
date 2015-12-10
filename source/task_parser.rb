@@ -1,19 +1,30 @@
-require 'CSV'
-require_relative 'todo'
+require 'pry'
 
-class TodoListParser
+require 'CSV'
+require_relative 'task'
+
+class TaskParser
   attr_reader :file
 
   def initialize(file)
     @file = file
+
+  end
+
+  def list
+    @list ||= parse_tasks_objects_from_file #Q: in what situation would a list exist pre-parse?
   end
 
   private
 
-  def parse_tasks_objects_from_file(file)
+  def parse_tasks_objects_from_file
     CSV.read(file).map.with_index do |row, index|
     Task.new(task_id: index+1, task: row)
     end
   end
 
 end
+
+# test = TodoListParser.new('todo.csv')
+# p test.list
+
