@@ -63,18 +63,17 @@ require 'csv'
 require 'pry'
 
 class TodoList
-	attr_reader :title
+	attr_reader :path
 
 	def initialize(args)
-		@title = args.fetch(:title, nil)
+		@path = args.fetch(:path, nil)
 		@is_ordered = args.fetch(:is_ordered, true)
-		create_new_csv_file(@title)
+		@tasks_todo = args.fetch(:tasks, nil)
+		create_new_csv_file(@path)
 	end
 
 	def create_new_csv_file(file_path)
-		CSV.open('file_path', 'w') do |csv|
-			csv << self.tasks_todo
-		end
+		CSV.open('file_path', 'w')
 	end
 
 	def add_new_task
@@ -93,7 +92,7 @@ class TodoList
 	end
 
 	def generate_task_from_csv
-		@tasks_todo = CSV.read('todo.csv').flatten
+		@tasks_todo = CSV.read(self.path).flatten
 	end
 
 end
