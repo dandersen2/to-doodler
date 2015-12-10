@@ -7,6 +7,10 @@ class TaskList
     @list = TaskParser.new('todo.csv').list
   end
 
+  def list
+    @list
+  end
+
   def add(task_info)
     list << Task.new(task_info)
   end
@@ -17,8 +21,8 @@ class TaskList
 
 end
 
-# test = TaskList.new
-# p test.list
+test = TaskList.new
+p test.list
 # p test.add(task_id: 14, task: "Listen to The Beatles")
 # p test.delete_by_id(14)
 
