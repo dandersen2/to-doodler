@@ -8,3 +8,40 @@
 
 # Note that (4) is where the essence of your application lives.
 # Pretty much every application in the universe has some version of responsibilities (1), (2), and (3).
+
+require 'pry'
+require 'csv'
+require_relative 'list'
+require_relative 'view'
+
+
+
+class Controller
+  ARGV.inspect
+  attr_reader :list, :view
+
+  def initialize
+    @list = List.new('todo.csv')
+    @view = View.new
+    run_interface
+  end
+
+  def run_interface
+    input = @view.get_input
+    if input[0] == 'add'
+      task_string = input[1..-1].join(' ')
+      self.list.add(task_string)
+      self.view.display(task_string)
+    elsif input[0] == 'list'
+      self.view.display(self.list.to_s)
+    elsif input[0] == 'delete'
+
+    end
+  end
+end
+
+
+controller = Controller.new
+
+binding.pry
+puts
