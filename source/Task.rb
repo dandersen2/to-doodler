@@ -1,7 +1,7 @@
 
 require 'pry'
 class Task
-  attr_reader :complete
+  attr_reader :complete, :name
   def initialize(name)
     @name = name
     @complete = false
