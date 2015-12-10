@@ -1,4 +1,12 @@
 # What classes do you need?
+- An empty list
+  - An add task, to be added to the list
+    - A completed task, to replace one on the list
+    - An updated task, to replace one on the list
+#Intro Ideas
+# Create a default "task" that has all properties of a task, then addtask completetask and updatetask inherit and add to it
+
+
 
 # Remember, there are four high-level responsibilities, each of which have multiple sub-responsibilities:
 # 1. Gathering user input and taking the appropriate action (controller)
