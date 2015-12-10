@@ -41,6 +41,9 @@ DEFINE class 'TodoList'
 	DEFINE function 'is_complete?'
 		RETURN 'is_complete'
 
+	DEFINE function 'complete_task'
+		PASS true to 'is_complete'
+
 	DEFINE function 'generate_task_from_csv'
 		CREATE array 'csv_tasks'
 		CREATE array 'list_of_tasks'
@@ -56,9 +59,10 @@ DEFINE class 'TodoListTask'
 	CREATE boolean 'is_complete'
 
 	DEFINE function 'is_complete?'
-		RETURN is_complete
+		RETURN 'is_complete'
 
 =end
+require_relative 'todo_list_task'
 require 'csv'
 require 'pry'
 
@@ -69,11 +73,22 @@ class TodoList
 		@path = args.fetch(:path, nil)
 		@is_ordered = args.fetch(:is_ordered, true)
 		@tasks_todo = args.fetch(:tasks, nil)
+		@is_complete = false
 		create_new_csv_file(@path)
 	end
 
 	def create_new_csv_file(file_path)
 		CSV.open('file_path', 'w')
+	end
+
+	def is_complete?
+		self.tasks_todo.each do |task|
+			return false if task.is_complete == false
+		end
+	end
+
+	def complete_task(task)
+		task.is_complete = true
 	end
 
 	def add_new_task
@@ -91,8 +106,13 @@ class TodoList
 		end
 	end
 
+	private
+
 	def generate_task_from_csv
-		@tasks_todo = CSV.read(self.path).flatten
+		@tasks_todo = []
+		CSV.foreach(self.path) do |task|
+			@tasks_todo << TodoListTask.new(descrip: task)
+		end
 	end
 
 end
