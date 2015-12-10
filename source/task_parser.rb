@@ -1,5 +1,3 @@
-require 'pry'
-
 require 'CSV'
 require_relative 'task'
 
@@ -19,12 +17,12 @@ class TaskParser
 
   def parse_tasks_objects_from_file
     CSV.read(file).map.with_index do |row, index|
-    Task.new(task_id: index+1, task: row)
+    Task.new(id: index+1, task: row.join)
     end
   end
 
 end
 
-# test = TodoListParser.new('todo.csv')
+# test = TaskParser.new('todo.csv')
 # p test.list
 

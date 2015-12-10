@@ -1,16 +1,26 @@
+require 'CSV'
+
 class Task
-  attr_reader :task_id, :task
+  attr_reader :id, :task
 
   def initialize(args = {})
-    @task_id = args[:task_id] || "#"
+    @id = args[:id] || "#"
     @task = args[:task] || "Do Nothing"
     @completed = args.fetch(:completed, false)
   end
 
   def to_s
-    "#{@task_id}. #{@task} -- Complete: #{@completed}"
+    "#{@id}. #{@task} -- Complete: #{@completed}"
   end
+
+  def write_task_to_csv
+    CSV.open("todo.csv", "ab") do |csv|
+    csv << [task]
+    end
+  end
+
 end
 
-test = Task.new
-puts test
+
+# test = Task.new(task: ["Go to the gym"])
+# puts test
