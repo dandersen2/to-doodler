@@ -19,7 +19,7 @@ require_relative 'task'
 
 class ToDo
   attr_reader :file
-  #attr_writer :task
+  attr_writer :task_array
 
   def initialize(file)
     @file = file
@@ -29,17 +29,19 @@ class ToDo
   def parse_list
    CSV.foreach(self.file) do |row|
       row.each do |description|
-        #make task obj using description
-        #take that obj and pass it to the a self.add_task call
-        #done
       @task_array << description = self.add_task#make a task and feed it the description
       end
     end
   end
 
-  def add_task#if you call this in the parse then you probably need inpout, that input would be a task obj that you are adding???
+  def add_task
     @task_array.push(Task.new)
-    #p @task_array
+  end
+
+  def remove_task
+    num = gets.chomp.to_i
+    @task_array.delete(@task_array[num])
+    p @task_array
   end
 
 
