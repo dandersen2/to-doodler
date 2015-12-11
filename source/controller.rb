@@ -22,6 +22,7 @@ class Controller
       @viewer.display(self.my_todo_list.add(ARGV.drop(1).join(" ")))
       # binding.pry
       puts my_todo_list
+      my_todo_list.update_csv_file_from_task_list(file)
     elsif input == "delete"
       @viewer.display(self.my_todo_list.delete(ARGV[1]))
     elsif input == "complete"

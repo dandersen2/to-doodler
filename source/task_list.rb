@@ -5,12 +5,15 @@ require 'pry'
 require_relative 'task'
 
 class TaskList
-  attr_reader :list
+  attr_reader :list, :pretty_print_list # :shovel_back_to_csv
+  attr_writer :pretty_print_list # :shovel_back_to_csv
 
   def initialize
     @list = []
     populate_task_list_from_csv('todo.csv')
-    # update_csv_file_from_task_list('todo.csv')
+    update_csv_file_from_task_list('todo.csv')
+    @pretty_print_list = []
+    @shovel_back_to_csv = []
   end
 
   def add(task_string)
@@ -46,6 +49,41 @@ class TaskList
     end
   end
 
+  def update_csv_file_from_task_list(file)
+    counter = 1
+    shovel_back_to_csv = []
+    list.map do |task|
+      if task.completed
+      # if task.list.completed
+        if counter < 10
+          shovel_back_to_csv << (counter.to_s + ".  [X]  " + task.task_content)
+        else
+          shovel_back_to_csv << (counter.to_s + ". [X]  " + task.task_content)
+        end
+      else
+        if counter < 10
+          shovel_back_to_csv << (counter.to_s + ".  [ ]  " + task.task_content)
+        else
+          shovel_back_to_csv << (counter.to_s + ". [ ]  " + task.task_content)
+        end
+      end
+      counter += 1
+    end
+    # shovel_back_to_csv.each do |item|
+    #   p item
+    CSV.open(file, 'w') do |csv|
+      csv << [shovel_back_to_csv]
+    end
+  end
+
+  # def update_csv_file_from_task_list(file)
+  #   self.pretty_print_list.map do |item|
+
+  #     # csv_file = CSV.open(file, 'w') do |row|
+  #       row << item
+  #     end
+  #   end
+  # end
 
 
 
@@ -72,19 +110,23 @@ class TaskList
       if task.completed
       # if task.list.completed
         if counter < 10
-          p (counter.to_s + ".  [X]  " + task.task_content)
+          self.pretty_print_list << (counter.to_s + ".  [X]  " + task.task_content)
         else
-          p (counter.to_s + ". [X]  " + task.task_content)
+          self.pretty_print_list << (counter.to_s + ". [X]  " + task.task_content)
         end
       else
         if counter < 10
-          p (counter.to_s + ".  [ ]  " + task.task_content)
+          self.pretty_print_list << (counter.to_s + ".  [ ]  " + task.task_content)
         else
-          p (counter.to_s + ". [ ]  " + task.task_content)
+          self.pretty_print_list << (counter.to_s + ". [ ]  " + task.task_content)
         end
       end
       counter += 1
     end
+    self.pretty_print_list.each do |item|
+      p item
+    end
+
   end
 
 end
