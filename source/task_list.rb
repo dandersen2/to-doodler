@@ -18,13 +18,6 @@ class TaskList
     self.list << new_task_object
   end
 
-
-  def tasks(task_list_name)
-    to_s
-    #prints all tasks in this task_list
-
-  end
-
   def delete(task_id)
     self.list.each do |task_object|
       if task_object.task_id == task_id
@@ -63,6 +56,11 @@ class TaskList
     # (use this to check what is being shoveled into @parsed_list)
   end
 
+  def tasks(task_list_name)
+    to_s
+    #prints all tasks in this task_list
+
+  end
 
   def to_s
     counter = 0
