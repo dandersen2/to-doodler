@@ -1,13 +1,24 @@
+require_relative 'todo'
 
+describe 'List' do
+  let(:list) {save_tasks_to_csv}
 
-describe Task do
-let(:orange) { Orange.new(5) }
+  describe 'add'  do
+    let(:tasks) {["Win cheeseburger eating competition"]}
 
-
-describe CarLoader do
-  describe "#get_cars_from_csv" do
-    it "returns an array of Car objects" do
-      expect CarLoader.get_cars_from_csv('inventory.csv').to include (5839,Honda,Accord,2001)
+    it 'should add the task in a CSV formatted file' do
+      expect(tasks[0]).to eq ("Win cheeseburger eating competition")
     end
   end
 end
+
+describe CSVParsable do
+ let(:tasks) { CSVParsable.get_tasks_from_csv("todo.csv") }
+
+ describe "#get_tasks_from_csv" do
+  it "returns an array of To-Do objects" do
+    expect ("todo.csv").to include ("Become lead singer of Judas Priest")
+  end
+end
+end
+

@@ -6,27 +6,17 @@
 # 3. Reading and writing from the todo.txt file (persisting models to non-volatile storage, aka "the hard drive")
 # "Doable" module
 # 4. Manipulating the in-memory objects that model a real-life TODO list (model)
-# Class List ( encapsulates class Task)
-
-
-#responsibilities:
-# Initialize an empty TODO list list = List.new
-# Add a task to a TODO list list.add(Task.new("walk the dog"))
-# Get all the tasks on a TODO list  tasks = list.tasks
-# Delete a particular task from a TODO list tasks =  list.delete
-# Complete a particular task on a TODO list tasks = task.complete
-# Parse the command-line arguments and take the appropriate action  ???
-# Parse the todo.csv file and wrap each entry in easier-to-manipulate Ruby objects  ???
+# Class List (encapsulates class Task)
 
 require 'csv'
 require 'pry'
 
 module CSVParsable
  def get_tasks_from_csv(file)
-    tasks = []
-    CSV.foreach(file) do |row|
+  tasks = []
+  CSV.foreach(file) do |row|
     tasks << Task.new(row[0])
-    end
+  end
     tasks
   end
 end
@@ -47,25 +37,22 @@ class List
   end
 
   def save_tasks_to_csv
-   CSV.open("todo.csv", "w") do |csv|
+    CSV.open("todo.csv", "w") do |csv|
     @tasks.map {|task| csv << [task.name]}
-   end
- end
-
-
-  def to_s
-   @tasks.map.with_index {|task, index| "#{index+1}[#{completion_status(task)}] + #{task.name}"}.join("\n")
-   end
-
-
-  def completion_status(task)
-      if task.complete
-        return "X"
-      else
-        return " "
-      end
+    end
   end
 
+def to_s
+  @tasks.map.with_index {|task, index| "#{index+1}[#{completion_status(task)}]" + "#{task.name}"}.join("\n")
+end
+
+def completion_status(task)
+  if task.complete
+    return "X"
+  else
+    return " "
+  end
+end
 
   def delete(index)
     @tasks.delete_at((index.to_i)-1)
@@ -73,6 +60,7 @@ class List
   end
 
 end
+
 
 class Task
   attr_accessor  :name, :complete
@@ -86,7 +74,6 @@ class Task
     @complete = true
   end
 
-
 end
 
 class Controller
@@ -95,27 +82,26 @@ class Controller
   def initialize
     @list = List.new
     @view = View.new
-    run
+    run_interface
   end
 
   def run_interface
     if ARGV[0] == "list"
-       @view.show(@list)
+     @view.show(@list)
 
-    elsif ARGV[0] == 'add'
-       @list.add(Task.new(ARGV[1..-1].join(" ")))
-       @view.show(@list)
+   elsif ARGV[0] == 'add'
+     @list.add(Task.new(ARGV[1..-1].join(" ")))
+     @view.show(@list)
 
-    elsif ARGV[0] == 'delete'
-       @list.delete(ARGV[1])
-       @view.show(@list)
+   elsif ARGV[0] == 'delete'
+     @list.delete(ARGV[1])
+     @view.show(@list)
 
-    elsif ARGV[0] == 'completed'
-       @list.tasks[(ARGV[1].to_i)-1].completed
-       @view.show(@list)
-    end
-  end
-
+   elsif ARGV[0] == 'completed'
+     @list.tasks[(ARGV[1].to_i)-1].completed
+     @view.show(@list)
+   end
+ end
 end
 
 class View
@@ -123,10 +109,32 @@ class View
   def show(list)
     puts list
   end
+
 end
 
 
 controller = Controller.new
 list = List.new
 
+# DRIVER CODE BELOW:
+# ruby todo.rb add drink heavily
+# Win cheeseburger eating competition
+# Obtain blackjack dealer license
+# Become lead singer of Judas Priest
+# Win Olympic Gold
+# Tame Lions
 
+# ruby todo.rb delete 3
+# [ ]Win cheeseburger eating competition
+# [ ]Obtain blackjack dealer license
+# [ ]Win Olympic Gold
+# [ ]Tame Lions
+# [ ]Drink heavily
+
+# ruby todo.rb completed 3
+# [ ]Win cheeseburger eating competition
+# [ ]Obtain blackjack dealer license
+# [X]Become lead singer of Judas Priest
+# [ ]Win Olympic Gold
+# [ ]Tame Lions
+# [ ]Drink heavily
