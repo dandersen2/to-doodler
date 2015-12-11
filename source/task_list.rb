@@ -71,11 +71,13 @@ class TaskList
 
   def to_s
     counter = 0
-    @list.each do |task|
-      if @completed
-        counter + "[X]" + task
+      @list.map do |task|
+        # task.map do |attribute|???
+    # @list.map do |task|
+      if task.completed
+        counter + "[X]" + task.task_content
       else
-        counter + "[ ]" + task
+        counter + "[ ]" + task.task_content
         # " #{self.counter} [X]" + task
       end
       counter += 1
@@ -83,6 +85,8 @@ class TaskList
   end
 
 end
+
+#my_todo_list.list.task[0].task_id   gets the content within the task object
 
 
 

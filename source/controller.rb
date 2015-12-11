@@ -20,6 +20,8 @@ class Controller
     input = @viewer.get_input
     if input == "add"
       @viewer.display(self.my_todo_list.add(ARGV.drop(1).join(" ")))
+      binding.pry
+      puts my_todo_list
     elsif input == "delete"
       @viewer.display(self.my_todo_list.delete(ARGV[1]))
     elsif input == "complete"
@@ -31,8 +33,11 @@ class Controller
 
 end
 
-binding.pry
+# binding.pry
 
 my_controller = Controller.new
+
 puts 'bob'
 puts
+
+# puts my_todo_list

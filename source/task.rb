@@ -4,7 +4,7 @@
 
 class Task
   attr_reader :task_id, :task_content
-  attr_writer :completed
+  attr_accessor :completed
 
   def initialize(args) #(new_task)   #(args = {})
     self.completed  = false
@@ -23,11 +23,11 @@ class Task
     # @parsed_list = parsed_todo.fetch()
   end
 
-  def completed(task_id)
-    #moves the task (provided in the argument) to a completed tasks data structure
-    # Note!: This will require changing the format of todo.csv and the code that parses it.
-    # IDEA: take an array called complete that is included in the pretty printed version and just put an X into it instead of a " " empty space ???
-  end
+  # def completed(task_id)
+  #   #moves the task (provided in the argument) to a completed tasks data structure
+  #   # Note!: This will require changing the format of todo.csv and the code that parses it.
+  #   # IDEA: take an array called complete that is included in the pretty printed version and just put an X into it instead of a " " empty space ???
+  # end
 
   def completed?(task_id)
     @completed
