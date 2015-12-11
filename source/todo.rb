@@ -11,7 +11,7 @@
 # Note that (4) is where the essence of your application lives.
 # Pretty much every application in the universe has some version of responsibilities (1), (2), and (3).
 
-require 'pry'
+
 require 'csv'
 require_relative 'task'
 
@@ -19,7 +19,7 @@ require_relative 'task'
 
 class ToDo
   attr_reader :file
-  attr_writer :task_array
+  attr_accessor :task_array
 
   def initialize(file)
     @file = file
@@ -34,20 +34,15 @@ class ToDo
     end
   end
 
-  def add_task
-    @task_array.push(Task.new)
+  def add_task(does_something)
+    @task_array.push(Task.new(does_something))
   end
 
-  def remove_task
-    num = gets.chomp.to_i
-    @task_array.delete(@task_array[num])
-    p @task_array
-  end
-
-
-  def to_s
-    p @task_array
-  end
+  #def remove_task
+   # num = gets.chomp.to_i
+   # @task_array.delete(self.task_array[num])
+    #p @task_array
+  #end
 end
 
 
