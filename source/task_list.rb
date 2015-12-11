@@ -51,18 +51,36 @@ class TaskList
 
   def to_s
     counter = 0
-      @list.map do |task|
-        # task.map do |attribute|???
-    # @list.map do |task|
+    list.map do |task|
+    # self.list.list.map do |task|
+      # p task
+      # p task.task_content
+      # p task.task_id
+      # p task.completed
+      # binding.pry
       if task.completed
-        counter + "[X]" + task.task_content
+      # if task.list.completed
+        p counter.to_s + "[X]" + task.task_content
       else
-        counter + "[ ]" + task.task_content
-        # " #{self.counter} [X]" + task
+        p counter.to_s + "[ ]" + task.task_content
       end
       counter += 1
     end
   end
+  # def to_s
+  #   counter = 0
+  #     @list.map do |task|
+  #       # task.map do |attribute|???
+  #   # @list.map do |task|
+  #     if task.completed
+  #       counter + "[X]" + task.task_content
+  #     else
+  #       counter + "[ ]" + task.task_content
+  #       # " #{self.counter} [X]" + task
+  #     end
+  #     counter += 1
+  #   end
+  # end
 
 end
 
