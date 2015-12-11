@@ -1,20 +1,21 @@
-require_relative 'todo_parser'
-require 'pry'
 class Task
-
   attr_reader :to_do, :date_added
-  attr_accessor :completed, :check
+  attr_accessor :completed
+
+  RANDOM_EVIL = ["steal lunch", "give a tourist wrong directions", "evil laugh", "kill kittens"]
+
   def initialize(args = {})
-    random_evil= ["steal lunch", "give a tourist wrong directions", "evil laugh", "kill kittens"]
-    @to_do = args[:to_do] || random_evil.sample
+    @to_do = args[:to_do] || RANDOM_EVIL.sample
     @completed = false
     @date_added = Time.now
-    @check = "[ ]"
-  end
-  def complete
-    self.completed = true
-    self.check = "[X]"
   end
 
+  def complete
+    self.completed = true
+  end
+
+  def check
+    completed ? "[X]" : "[ ]"
+  end
 end
 
