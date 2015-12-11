@@ -18,4 +18,3 @@ class Task
 
 end
 
-todo =Task.new()

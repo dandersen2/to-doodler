@@ -23,7 +23,7 @@ end
 list = List.new('source/todo.csv')
 list.add_list
 list.done("evil laugh")
-binding.pry
+
 p list
 
 

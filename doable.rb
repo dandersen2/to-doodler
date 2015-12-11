@@ -42,4 +42,11 @@ module Doable
       end
     end
    end
+   #i just started to play with this. I'm going to pass it a hash that will be created out the ARGV
+   #every work of the ARGV will be a :to_do => 'drinkwine'
+   def add_several_tasks #list_of_todos lives in my runner.rb
+    list_of_todos.each do |hash|
+       self.to_dos << Task.new(hash)
+     end
+   end
 end
