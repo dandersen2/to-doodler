@@ -1,4 +1,5 @@
 require_relative 'todo'
+require_relative 'task'
 
 
 describe Task do

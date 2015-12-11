@@ -11,20 +11,8 @@
 
 require 'csv'
 require 'pry'
+require_relative 'task'
 
-class Task
-
-attr_reader :task_item
-
-  def initialize(task_item = {})
-    @task_item = task_item.fetch(:task_item)
-  end
-
-  def to_s
-    @task_item
-  end
-
-end
 
 
 class List
@@ -84,14 +72,6 @@ attr_writer :set_of_tasks
   # end
 
 end
-
-list = List.new('todo.csv')
-
-list.action
-
-binding.pry
-
-puts
 
 
 
