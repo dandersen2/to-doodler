@@ -9,7 +9,7 @@ class Controller
   attr_reader :my_todo_list
 
   def initialize
-    @my_todo_list = TaskList.new #.populate_task_list_from_csv('todo.csv')
+    @my_todo_list = TaskList.new
     @viewer = Viewer.new
     run_interface
   end
@@ -38,6 +38,5 @@ end
 my_controller = Controller.new
 
 puts 'bob'
-puts
 
 # puts my_todo_list
