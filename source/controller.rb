@@ -15,14 +15,14 @@ class Controller
 
   def initialize(args)
     @view = View.new
-    @list = List.new
+    @list = List.new('todo.csv')
     execute_function( args[:option], args[:task] )
   end
 
   def execute_function(option, task)
     case option
     when "list"
-      @view.display(@list.to_s)
+      @view.display(puts @list)
       @list.write_to_file
     when "add"
       @list.add(task)

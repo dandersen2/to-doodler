@@ -9,13 +9,12 @@ include PrinttoCSV
 class Task
 attr_reader :task
   def initialize(task)
-     # @task = task
     @task = add_checkbox(task)
   end
 
   def add_checkbox(task)
     task = "[ ]  " + task if (/^\[X\]/ =~ task).nil? && (/^\[ \]/ =~ task).nil?
-    task
+     task
   end
 
   def to_s
@@ -24,14 +23,11 @@ attr_reader :task
 end
 
 class List
-attr_reader :list
+attr_reader :list, :file
 
-  def initialize(options = {})
-    if options.empty?
-      @list = build_list
-    else
-      @list = {}
-    end
+  def initialize(file)
+    @file = file
+    @list = build_list(@file)
   end
 
   def add(task_string)
@@ -45,9 +41,7 @@ attr_reader :list
 
   def complete(list_index)
     @list[list_index-1] = Task.new(@list[list_index-1].task.sub(/^\[ \]/,"[X]"))
-    byebug
      @list
-
   end
 
   def to_s
@@ -55,7 +49,7 @@ attr_reader :list
   end
 
   def write_to_file
-    print_to_csv(@list)
+    print_to_csv(@list, @file)
   end
 
 end
@@ -63,4 +57,4 @@ end
 
 
 
-List.new
+# List.new
