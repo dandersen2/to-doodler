@@ -36,7 +36,7 @@ class Controller
     when "complete"
       completed_task = @list.list[task.to_i - 1].task
       @list.complete(task.to_i)
-      @view.display("Completed \"#{completed_task}\" from your TODO list...")
+      @view.display("Completed \"#{ @list.list[task.to_i - 1].task}\" from your TODO list...")
       @list.write_to_file
     end
   end

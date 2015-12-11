@@ -44,16 +44,8 @@ attr_reader :list
   end
 
   def complete(list_index)
-    #     !(/^\[X\]/ =~ task).nil? || (/^\[ \]/ =~ task).nil?
-    # task
-    # gsub
-    # completed_task = @list[list_index - 1].task
-    # @list[list_index - 1] = Task.new("<complete> " +completed_task)
-    # @list
-
-    # completed_task = @list[list_index - 1].task
     @list[list_index-1] = Task.new(@list[list_index-1].task.sub(/^\[ \]/,"[X]"))
-    # byebug
+    byebug
      @list
 
   end
