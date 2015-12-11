@@ -39,11 +39,19 @@ class Controller
       self.view.display(self.list.to_s)
     elsif input[0] == 'delete'
       self.view.display(self.list.delete(input[1].to_i))
-
     elsif input[0] == 'complete'
       self.view.display(self.list.complete_task(input[1].to_i))
     elsif input[0] == 'delete_completed'
       self.view.display(self.list.delete_completed)
+    elsif input[0] == 'list:outstanding'
+      self.view.display(self.list.list_outstanding)
+    elsif input[0] == 'list:completed'
+      self.view.display(self.list.list_completed)
+    elsif input[0] == 'tag'
+      self.view.display(self.list.tag_task(input[1].to_i, input[2..-1]))
+    elsif input[0].include?("filter:")
+      input[0] = input[0].split(":")
+      self.view.display(self.list.filter_by_tag(input[0][1]))
     end
   end
 end

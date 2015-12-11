@@ -16,7 +16,7 @@ class List
   def add(task)
     self.tasks << Task.new(task)
     TaskParsable.rewrite(self.tasks)
-    "Added \"#{task.to_s} to list...\""
+    "Added \"#{task.to_s}\" to list..."
   end
 
   def delete(task_number)
@@ -25,17 +25,6 @@ class List
     "Deleted \"#{deleted_task.to_s[4..-1]}\" from your TODO list..."
   end
 
-##########TRY TO
-
-  def delete_completed
-    # self.tasks.each_with_index do |task, index|
-    #   task.delete(index + 1) if task.status == true
-    # end
-
-    self.tasks.select! do |task|
-      !task.status
-    end
-  end
   def complete_task(task_number)
     self.tasks[task_number-1].complete
     TaskParsable.rewrite(self.tasks)
@@ -49,4 +38,28 @@ class List
     end
     list_string
   end
+
+  def delete_completed
+    self.tasks.select! {|task| !task.status}
+    TaskParsable.rewrite(self.tasks)
+  end
+
+  # AFTER end of day
+  def list_outstanding
+    self.tasks.select{|task| !task.status}.sort_by {|task| task.created_at}
+  end
+  # AFTER end of day
+  def list_completed
+    self.tasks.select{|task| task.status}.sort_by {|task| task.completed_at}
+  end
+  # AFTER end of day
+  def tag_task(index, tag_args)
+    tag_args.map {|tag| self.tasks[index - 1].tags << tag}
+    TaskParsable.rewrite(self.tasks)
+  end
+  # AFTER end of day
+  def filter_by_tag(tag_arg)
+    self.tasks.select{|task| task.tags.include?(tag_arg)}
+  end
+
 end

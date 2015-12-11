@@ -1,12 +1,17 @@
+require 'time'
 class Task
-  attr_accessor :status, :task, :check_box
+  attr_reader :created_at
+  attr_accessor :status, :task, :check_box, :completed_at, :tags
 
   def initialize(task)
-    # @task_id = task_id
     @task = task
     @status = false
+    @created_at = Time.new # AFTER end of day
+    @completed_at
+    @tags = []
     if !(self.task.include?("[ ]") || self.task.include?("[X]"))
       self.task = "[ ] " + self.task
+    elsif self.task.include?("[X]")
       self.status = true
     end
   end
@@ -19,12 +24,10 @@ class Task
   def complete
     self.status = true
     self.update_check_box
-    # self.task.gsub("[ ]", "[X]")
+
+
+    self.completed_at = Time.new # AFTER end of day
   end
-
-  # def format_task
-
-  # end
 
   def to_s
     self.task
