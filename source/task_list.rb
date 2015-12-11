@@ -10,6 +10,7 @@ class TaskList
   def initialize
     @list = []
     populate_task_list_from_csv('todo.csv')
+    # update_csv_file_from_task_list('todo.csv')
   end
 
   def add(task_string)
@@ -41,9 +42,25 @@ class TaskList
 
   def populate_task_list_from_csv(file)
     csv_file = CSV.open(file).map do |row|
-    self.list << Task.new(row[0])
+      self.list << Task.new(row[0])
     end
   end
+
+
+
+
+  # def update_csv_file_from_task_list(file)
+  #   csv_file = CSV.open(file, 'w') do |row|
+  #     list.map do |task|
+  #       # row << task.task_content
+  #       row << self.list.task.task_content
+  #     end
+  #   end
+  # end
+
+#   CSV.open('our-new-customers-file.csv', 'w') do |csv_object|
+#   customers.array.each do |row_array|
+#     csv_object << row_array
 
   def tasks(task_list_name)
     to_s
