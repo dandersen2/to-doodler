@@ -56,15 +56,15 @@ class TaskList
       if task.completed
       # if task.list.completed
         if counter < 10
-          shovel_back_to_csv << (counter.to_s + ".  [X]  " + task.task_content)
+          shovel_back_to_csv << (counter.to_s + ".  [X]  " + task.task_content + "\n")
         else
-          shovel_back_to_csv << (counter.to_s + ". [X]  " + task.task_content)
+          shovel_back_to_csv << (counter.to_s + ". [X]  " + task.task_content + "\n")
         end
       else
         if counter < 10
-          shovel_back_to_csv << (counter.to_s + ".  [ ]  " + task.task_content)
+          shovel_back_to_csv << (counter.to_s + ".  [ ]  " + task.task_content + "\n")
         else
-          shovel_back_to_csv << (counter.to_s + ". [ ]  " + task.task_content)
+          shovel_back_to_csv << (counter.to_s + ". [ ]  " + task.task_content + "\n")
         end
       end
       counter += 1
