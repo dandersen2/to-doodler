@@ -20,35 +20,37 @@ require_relative 'task_list'
 
 
 
-# MAKE A NEW LIST!
-#create a new empty task list
-thursday_task_list = TaskList.new
+# # MAKE A NEW LIST!
+# #create a new empty task list
+# thursday_task_list = TaskList.new
 
-#print out the empty list to confirm
-p thursday_task_list
-
-
-# MAKE A NEW TASK!
-# create a new task ("Walk the dog")
-my_new_task = Task.new("Walk the Dog")
-
-# print out my_new_task
-p my_new_task
-
-# add  my_new_task to thursday_task_list
-thursday_task_list.add(my_new_task)
-
-# print out thursday_task_list
+# #print out the empty list to confirm
 # p thursday_task_list
 
-# create a second task
-my_new_task_2 = Task.new("Get a haircut")
 
-# add a second todo to the thursday task_list
-thursday_task_list.add(my_new_task_2)
+# # MAKE A NEW TASK!
+# # create a new task ("Walk the dog")
+# my_new_task = Task.new("Walk the Dog")
 
-# print out the new list (the objects within it)
-p thursday_task_list
+# # print out my_new_task
+# p my_new_task
 
+# # add  my_new_task to thursday_task_list
+# thursday_task_list.add(my_new_task)
 
+# # print out thursday_task_list
+# # p thursday_task_list
+
+# # create a second task
+# my_new_task_2 = Task.new("Get a haircut")
+
+# # add a second todo to the thursday task_list
+# thursday_task_list.add(my_new_task_2)
+
+# # print out the new list (the objects within it)
+# p thursday_task_list
+
+csv_task_list = TaskList.new
+
+p csv_task_list
 

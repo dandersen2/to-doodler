@@ -7,6 +7,7 @@ class Viewer
 
   def get_input
     ARGV[0]
+    #ARGV here and define argv[0] asnd argv[1..length] later in controller . runinterface}
   end
 
   def display_welcome_message
