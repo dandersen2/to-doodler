@@ -18,7 +18,7 @@ class Controller
       if option == "1"
         @viewer.add_file_message
         file = @viewer.gets_input
-        mod_file(create_list('todo.csv'))
+        mod_file(create_list(file))
         break
       elsif option == "2"
         mod_file(create_list)
@@ -32,6 +32,7 @@ class Controller
 
   def mod_file(file)
     option = ""
+    @viewer.space
     @viewer.options_intro_message
     @viewer.options_message
     until option == "exit" do
@@ -45,8 +46,8 @@ class Controller
         complete_task
       when "print"
         print_list
-      when "store"
-        store_file
+      when "save"
+        save_file
       when "exit"
         break
       else
@@ -75,14 +76,14 @@ class Controller
 
   def delete_task
     @viewer.delete_task_message
-    deleted_task = @viewer.gets_input.downcase
+    deleted_task = @viewer.gets_input.to_i
     @new_list.delete_task(deleted_task)
   end
 
   def print_list
     @viewer.space
     @viewer.list_title
-    list_print =  @new_list.to_s #CHANGED THIS
+    list_print =  @new_list.to_s
     puts list_print
   end
 
@@ -90,14 +91,12 @@ class Controller
     @viewer.space
     print_list
     @viewer.complete_task_message
-    completed_task = @viewer.gets_input.downcase
+    completed_task = @viewer.gets_input.to_i
     @new_list.complete_task(completed_task)
   end
 
-  def store_file
+  def save_file
     @new_list.save_list
   end
 
 end
-
-

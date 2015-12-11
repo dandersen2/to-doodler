@@ -26,7 +26,7 @@ class View
   end
 
   def delete_task_message
-    puts "\n"+"PLEASE CHOOSE TASK TO DELETE"
+    puts "\n"+"PLEASE CHOOSE NUMBER OF TASK TO DELETE"
   end
 
   def complete_task_message
@@ -49,12 +49,12 @@ class View
     puts "(DELETE) TO DELETE FROM YOUR TODO LIST"
     puts "(COMPLETE) TO COMPLETE A TASK FROM YOUR TODO LIST"
     puts "(PRINT) TO PRINT YOUR TODO LIST"
-    puts "(STORE) TO SAVE YOUR TODO LIST TO A FILE"
+    puts "(SAVE) TO SAVE YOUR TODO LIST TO A FILE"
     puts "(EXIT) TO EXIT PROGRAM"
   end
 
   def options_end_message
-    puts "WOULD YOU LIKE TO DO ANYTHING ELSE?(ADD/DELETE/COMPLETE/PRINT/STORE) IF NOT TYPE(EXIT)"
+    puts "WOULD YOU LIKE TO DO ANYTHING ELSE?(ADD/DELETE/COMPLETE/PRINT/SAVE) IF NOT TYPE(EXIT)"
   end
 
   def list_title

@@ -1,15 +1,12 @@
 require 'pry'
 module Parsater
-
   task_list = []
 
   def parse_csv(file)
     counter = 1
     CSV.foreach(file) do |task|
-      if task != nil
-      task_list << Task.new(task.join.chomp,counter)
-      counter +=1
-    end
+        task_list << Task.new(task.join.chomp,counter)
+        counter +=1
     end
   end
 
@@ -20,5 +17,4 @@ module Parsater
       end
     end
   end
-
 end

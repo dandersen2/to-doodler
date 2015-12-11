@@ -23,20 +23,25 @@ class List
 
   def parse_tasks_from_file
       @task_list << parse_csv(@file)
-      @num_of_tasks = (task_list.length-1)
+      @task_list = task_list.compact
+      @num_of_tasks = (task_list.length+1)
+  end
+
+  def update_num_tasks
+    @num_of_tasks = @task_list.length+1
   end
 
   def add_task(task)
-    @task_list << Task.new(task,@num_of_tasks+1)
+    @task_list << Task.new(task,update_num_tasks)
   end
 
-  def delete_task(task)
-    @task_list.delete_if {|list_element| list_element.task.downcase == task }
+  def delete_task(number)
+    @task_list.delete_if {|list_element| list_element.num==number }
   end
 
-  def complete_task(task)
+  def complete_task(number)
     @task_list.each do |list_element|
-      list_element.complete ="[x]" if list_element.task.downcase==task
+      list_element.complete ="[x]" if list_element.num==number
     end
   end
 
