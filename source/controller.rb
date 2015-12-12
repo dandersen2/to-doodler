@@ -36,8 +36,19 @@ include CsvParser
         @tdl.check_off_task(input[:task_item])
         view.display("You have checked off '#{input[:task_item]}' on your to do list.")
         view.display_list(@tdl.print_tasks)
+      else
+        if input[:command] == 'exit'
+          view.display("Thanks for using To-Doodler! Goodbye.")
+        else
+          view.display("I'm sorry, I didn't understand that command. Make sure you have entered a valid command and task item.
+            ")
+        end
       end
-      run_interface until input[:command] == 'exit'
+      if input[:command] == 'exit'
+        return false
+      else
+        run_interface
+      end
     end
 
   end

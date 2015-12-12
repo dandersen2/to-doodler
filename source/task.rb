@@ -16,8 +16,4 @@ attr_writer :completed
     end
   end
 
-  def to_s
-  # output task_id + content + completed? (DONE [ ])
-  end
-
 end

@@ -29,6 +29,11 @@ end
     end
   end
 
+  def to_s
+  # ? I'm not sure where the proper place for this is with my current MVC setup?
+  # output task_id + content + completed? (DONE [ ])
+  end
+
 
 end
 
