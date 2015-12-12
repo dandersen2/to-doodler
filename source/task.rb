@@ -4,7 +4,6 @@ attr_writer :completed
 
   def initialize(args)  # args is a hash {@content: "fkdnfsd",...}
     @completed = args.fetch(:completed, false)
-    # self.completed = false
     @task_id = args.fetch(:task_id, 0)
     @content = args.fetch(:content, "")
   end
@@ -19,7 +18,6 @@ attr_writer :completed
 
   def to_s
   # output task_id + content + completed? (DONE [ ])
-
   end
 
 end
