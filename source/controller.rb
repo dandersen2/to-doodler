@@ -29,14 +29,42 @@ attr_reader :view
     # task_item = input
     # binding.pry
     input = self.view.get_user_input
+    # "You have entered: #{input[:command]} #{input[:task_item]}"
     # binding.pry
     # until command == "exit"
-      "You have entered: #{input[:command]}"
+    # until input[:command] == 'exit'
+    until input[:command] == 'exit'
       if input[:command] == "list"
-        view.display("Here is your current to do list:")
+        # "You have entered: #{input[:command]} #{input[:task_item]}"
+        # view.display("Here is your current to do list:")
+        view.display_list(@tdl.print_tasks)
         # p "Here is your current to do list:"
         # self.view.display(@tdl.print_tasks)
+      elsif input[:command] == "add"
+        # "You have entered: #{input[:command]} #{input[:task_item]}"
+        # view.display(@tdl.add_task(input[:task_item]))
+        @tdl.add_task(input[:task_item])
+        view.display("You have added '#{input[:task_item]}' to your to do list.")
+        # view.display("Here is your updated to do list:")
         view.display_list(@tdl.print_tasks)
+      elsif input[:command] == "delete"
+        # "You have entered: #{input[:command]} #{input[:task_item]}"
+        # view.display(@tdl.delete_task(input[:task_item]))
+        @tdl.delete_task(input[:task_item])
+        view.display("You have deleted '#{input[:task_item]}' from your to do list.")
+        # view.display("Here is your updated to do list:")
+        view.display_list(@tdl.print_tasks)
+      elsif input[:command] == "completed"
+        # "You have entered: #{input[:command]} #{input[:task_item]}"
+        # view.display(@tdl.check_off_task(input[:task_item]))
+        @tdl.check_off_task(input[:task_item])
+        view.display("You have checked off '#{input[:task_item]}' on your to do list.")
+        # view.display("Here is your updated to do list:")
+        view.display_list(@tdl.print_tasks)
+      # elsif input[:command] == "exit"
+      #   break
+      end
+    end
       # elsif input[:command] == "add"
       #   self.view.display("You have added #{input[:task_item]} to your to do list.")
       #   self.view.display(@tdl.add_task(input[:task_item]))
@@ -49,7 +77,8 @@ attr_reader :view
       #   self.view.display(@tdl.check_off_task(input[:task_item]))
       # else
       #   self.view.display("Sorry, I didn't understand you.") unless input[:command] == "exit"
-      end
+      # run_interface until input[:command] == 'exit'
+    # end
       # input = self.view.get_user_input
     # end
   end

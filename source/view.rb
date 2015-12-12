@@ -17,6 +17,7 @@ class View
   def display_list(task_objects)
  # this should be a to_s method to print , but the VIEW should be doing the printing!
     #this method should display all tasks in the TaskList (DONE [X])
+    puts "Here is your current to do list:"
     task_objects.each_with_index do |task, index|
       if index < 9
         puts "#{index + 1}.  #{task.completed?} #{task.content}" #{task.task_id}
@@ -24,12 +25,15 @@ class View
         puts "#{index + 1}. #{task.completed?} #{task.content}" #{task.task_id}
       end
     end
+    puts
   end
 
   def get_user_input
     # input = ""
     input = gets.chomp.split(" ")
     parsed_input = {command: input.shift, task_item: input.join(" ")}
+    puts "You have entered: #{parsed_input[:command]} #{parsed_input[:task_item]}"
+    parsed_input
     # command = input.shift
     # item = input
     # input =
@@ -38,7 +42,7 @@ class View
   end
 
   def start_menu
-    display("Welcome to To_Doodler!
+    display("Welcome to To-Doodler!
       Enter 'list' to see your current To-Do list
       Enter 'add' followed by the To-Do item, to add a new To-Do to your list.
       Enter 'delete' followed by the To-Do item to delete a To-Do from your list.
