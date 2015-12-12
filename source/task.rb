@@ -1,11 +1,22 @@
 class Task
-  def initialize(args)
-    @completed = false
+attr_reader :content, :task_id
+
+  def initialize(args)  # args is a hash {@content: "fkdnfsd",...}
+    # @completed = args.fetch(, false
+    @task_id = args.fetch(:task_id, 0)
+    @content = args.fetch(:content, "")
   end
 
-  def complete?(id)
+  def complete?
     @completed
   end
+
+  def to_s
+  # output task_id + content + completed? (DONE [ ])
+
+  end
+
+end
 
 # task.complete? ==> true or false
 
