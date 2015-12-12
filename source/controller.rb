@@ -12,15 +12,17 @@ new_task_list = TaskList.new(parsed_list)
 
 # p new_task_list
 
-new_task_list.print_tasks                       #(WORKING [X])
+# new_task_list.print_tasks                            #(WORKING [X])
 
-new_task_list.add_task("buy some bananas")      #(WORKING [X])
-new_task_list.print_tasks
+new_task_list.add_task("Buy some bananas")           #(WORKING [X])
 
-new_task_list.print_tasks
-
-# new_task_list.delete_task("Visit doctor")         #(WORKING [ ])
 # new_task_list.print_tasks
 
-# Parse the command-line arguments and take the appropriate action
+new_task_list.delete_task("Visit doctor")            #(WORKING [X])
+
+# new_task_list.print_tasks
+
+new_task_list.check_off_task("Drink too much gin")     #(WORKING [X])
+
+new_task_list.print_tasks
 
