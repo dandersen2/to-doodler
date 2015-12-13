@@ -1,4 +1,3 @@
-
 class View
 
   def get_input
@@ -19,6 +18,10 @@ class View
 
   def delete_item(task)
     puts "You have removed #{task} from your TODO list"
+  end
+
+  def complete_message(task)
+    puts "You have completed #{task} from your TODO list"
   end
 
   def no_input

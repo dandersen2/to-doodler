@@ -8,6 +8,8 @@ class Controller
   def initialize(list, view)
     @list = list
     @view = view
+    @index = (ARGV[1].to_i - 1)
+    @list_array = list.todo_list_array
   end
 
   def user_action
@@ -19,9 +21,12 @@ class Controller
       add_todo_item
       generate_todo_list
     when "delete"
-      index = (ARGV[1].to_i - 1)
-      @view.delete_item(@list.todo_list_array[index][0])
+      @view.delete_item(@list_array[@index][0])
       delete_todo_item
+      generate_todo_list
+    when "complete" || "completed"
+      @view.complete_message(@list_array[@index][0].split(' ')[1..-1].join(' '))
+      complete_todo_item
       generate_todo_list
     else
       @view.no_input
@@ -33,13 +38,20 @@ class Controller
   end
 
   def add_todo_item
-    CSV.open('todo.csv', 'a') {|csv| csv << ARGV[1..-1]}
+    CSV.open('todo.csv', 'a') {|csv| csv << [[]] + ARGV[1..-1]}
   end
 
   def delete_todo_item
-    index = (ARGV[1].to_i - 1)
-    array = @list.todo_list_array - @list.todo_list_array.delete_at(index)
-    CSV.open('todo.csv', 'w') {|csv| array.each {|task| csv << task}}
+    revised_list = @list_array - @list_array.delete_at(@index)
+    CSV.open('todo.csv', 'w') {|csv| revised_list.each {|task| csv << task}}
+  end
+
+  def complete_todo_item
+    completed_array = []
+    completed = @list_array[@index]
+    completed_array << "\u2713 " + completed[0].split(' ')[1..-1].join(' ')
+    delete_todo_item
+    CSV.open('todo.csv', 'a') {|csv| csv << completed_array}
   end
 
 end
