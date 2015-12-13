@@ -13,7 +13,8 @@ require_relative 'view'
   attr_writer :view
 
     def initialize
-      @my_todo_list = TaskList.new(csv_parse('todo.csv'))
+      @my_todo_list = TaskList.new(csv_parse('updated_todo.csv'))
+      # @my_todo_list = TaskList.new(csv_parse('todo.csv'))
       @view = View.new   # (ARGV)?
       run_interface
     end
