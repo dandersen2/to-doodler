@@ -6,7 +6,7 @@ class Controller
   attr_accessor :list
 
   def initialize(list, view)
-    @list = list #as an array
+    @list = list
     @view = view
   end
 
@@ -15,12 +15,12 @@ class Controller
     when "list"
       generate_todo_list
     when "add"
-      @view.add_item(ARGV[1..-1])
+      @view.add_item(ARGV[1..-1].join(" "))
       add_todo_item
       generate_todo_list
     when "delete"
       index = (ARGV[1].to_i - 1)
-      @view.delete_item(@list[index])
+      @view.delete_item(@list.todo_list_array[index][0])
       delete_todo_item
       generate_todo_list
     else
@@ -29,16 +29,17 @@ class Controller
   end
 
   def generate_todo_list
-    @list.each_with_index{|task, index| @view.display_list(task, index + 1)}
+    @list.generate_task.each_with_index{|task, index| @view.display_list(task.join(" "), index + 1)}
   end
 
   def add_todo_item
-    @list << ARGV[1..-1].join(" ")
+    CSV.open('todo.csv', 'a') {|csv| csv << ARGV[1..-1]}
   end
 
   def delete_todo_item
     index = (ARGV[1].to_i - 1)
-    @list.delete_at(index)
+    array = @list.todo_list_array - @list.todo_list_array.delete_at(index)
+    CSV.open('todo.csv', 'w') {|csv| array.each {|task| csv << task}}
   end
 
 end

@@ -18,13 +18,6 @@ attr_reader :file, :todo_list_array
     CSV.foreach(@file).map{|row| (Task.new(row).task)}
   end
 
-  def overwrite_file(list)
-    CSV.open(@file, 'w') {|file| file.truncate(0)}
-    CSV.open(@file, "ab") do |csv|
-      csv << list
-    end
-  end
-
 end
 
 #todo = TodoFileParser.new('todo.csv')
