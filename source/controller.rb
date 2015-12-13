@@ -19,7 +19,8 @@ class Controller
       add_todo_item
       generate_todo_list
     when "delete"
-      # @view.delete_item(@list[ARGV[1]])
+      index = (ARGV[1].to_i - 1)
+      @view.delete_item(@list[index])
       delete_todo_item
       generate_todo_list
     else
@@ -36,7 +37,7 @@ class Controller
   end
 
   def delete_todo_item
-    index = ARGV[1].to_i - 1
+    index = (ARGV[1].to_i - 1)
     @list.delete_at(index)
   end
 

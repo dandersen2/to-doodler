@@ -18,7 +18,18 @@ attr_reader :file, :todo_list_array
     CSV.foreach(@file).map{|row| (Task.new(row).task)}
   end
 
+  def overwrite_file(list)
+    CSV.open(@file, 'w') {|file| file.truncate(0)}
+    CSV.open(@file, "ab") do |csv|
+      csv << list
+    end
+  end
+
 end
 
 #todo = TodoFileParser.new('todo.csv')
 #todo.todo_list_array => array of tasks
+
+
+#leaving off: ATTEMPTING TO OVERWRITE CSV FILE AND REPLACE WITH NEW ARRAY
+#             PROBLEM OCCURS AS THE CONTROLLER INITIATES OVER CSV FILE WHICH NEVER CHANGES
