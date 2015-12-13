@@ -1,20 +1,33 @@
 # 2. Displaying information to the user (view)
 class View
 
+  attr_reader :printable_list
+
+  def initialize
+    @printable_list = []
+  end
+
   def display(output)
     puts output
   end
 
   def display_list(task_objects)
+    # self.printable_list = []
     puts "Here is your current to do list:"
     task_objects.each_with_index do |task, index|
       if index < 9
-        puts "#{index + 1}.  #{task.completed?} #{task.content}"
+        self.printable_list << "#{index + 1}.  #{task.completed?} #{task.content}"
+        # puts "#{index + 1}.  #{task.completed?} #{task.content}"
       else
-        puts "#{index + 1}. #{task.completed?} #{task.content}"
+        self.printable_list << "#{index + 1}. #{task.completed?} #{task.content}"
+        # puts "#{index + 1}. #{task.completed?} #{task.content}"
       end
     end
+    self.printable_list.each do |line|
+      puts line
+    end
     puts
+    printable_list
   end
 
   def get_user_input

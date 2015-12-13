@@ -1,13 +1,13 @@
 class TaskList
 attr_accessor :tasks
 
-  def initialize(tasks)
+  def initialize(tasks = "")
     @tasks = tasks
    end
 
-def print_tasks
-  @tasks
-end
+  def print_tasks
+    @tasks
+  end
 
   def add_task(task_string)
     self.tasks << Task.new({content: task_string})

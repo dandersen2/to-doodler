@@ -15,6 +15,8 @@ include CsvParser
     def initialize
       @tdl = TaskList.new(csv_parse('todo.csv'))
       @view = View.new   # (ARGV)?
+      @updated_file = ""
+      # @updated_file = TaskList.new(csv_write('updated_todo.csv'))
       run_interface
     end
 
@@ -44,6 +46,8 @@ include CsvParser
             ")
         end
       end
+      @updated_file = TaskList.new(csv_write('updated_todo.csv'))
+      @view = View.new
       if input[:command] == 'exit'
         return false
       else
