@@ -20,11 +20,13 @@ module CsvParser
     # puts prepry
     # binding.pry
     # puts postpry
+    new_lines = []
     CSV.open(file, "wb") do |csv|
-      # new_lines = self.view.printable_list.join("\n")
-      # p new_lines
-      #   csv << new_lines
-      csv << self.view.printable_list # THIS WORKS!!!!!!
+      new_lines << self.view.printable_list.join("\n")
+      # puts new_lines
+      # new_lines.split
+        csv << new_lines
+      # csv << self.view.printable_list # THIS WORKS!!!!!!
 
       # self.view.printable_list.each { |line|  csv << line }
       # view.printable_list.each do |line|
