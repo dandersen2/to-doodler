@@ -15,21 +15,11 @@ module CsvParser
   end
 
   def csv_write(file)
-    # printable_list = [["hello"], ["my"], ["name"], ["is"], ["Dan"]]
-    # view.printable_list
-    # puts prepry
-    # binding.pry
-    # puts postpry
     new_lines = []
     CSV.open(file, "wb") do |csv|
       new_lines << self.view.printable_list.join("\n")
-      # puts new_lines
-      # new_lines.split
         csv << new_lines
-      # csv << self.view.printable_list # THIS WORKS!!!!!!
-
-      # self.view.printable_list.each { |line|  csv << line }
-      # view.printable_list.each do |line|
+    #?this function works and re-writes the 'updated_todo.csv' file with every action ('add', 'delete', 'completed', 'list') but clears all the entries when you type 'exit' to quit the app. I'm not sure why, but I realize the run_interface method has gotten very heavy and that's where the problem lies, I think.?
     end
   end
 

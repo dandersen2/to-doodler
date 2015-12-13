@@ -15,8 +15,6 @@ include CsvParser
     def initialize
       @tdl = TaskList.new(csv_parse('todo.csv'))
       @view = View.new   # (ARGV)?
-      @updated_file = ""
-      # @updated_file = TaskList.new(csv_write('updated_todo.csv'))
       run_interface
     end
 

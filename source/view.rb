@@ -12,15 +12,12 @@ class View
   end
 
   def display_list(task_objects)
-    # self.printable_list = []
     puts "Here is your current to do list:"
     task_objects.each_with_index do |task, index|
       if index < 9
         self.printable_list << "#{index + 1}.  #{task.completed?} #{task.content}"
-        # puts "#{index + 1}.  #{task.completed?} #{task.content}"
       else
         self.printable_list << "#{index + 1}. #{task.completed?} #{task.content}"
-        # puts "#{index + 1}. #{task.completed?} #{task.content}"
       end
     end
     self.printable_list.each do |line|
