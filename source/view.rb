@@ -29,9 +29,7 @@ class View
 
   def get_user_input
     input = gets.chomp.split(" ")
-    parsed_input = {command: input.shift, task_item: input.join(" ")}
-    puts "You have entered: #{parsed_input[:command]} #{parsed_input[:task_item]}"
-    parsed_input
+    {command: input.shift, task_item: input.join(" ")}
   end
 
   def start_menu

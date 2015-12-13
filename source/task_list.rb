@@ -1,4 +1,5 @@
 class TaskList
+include CsvParser
 attr_accessor :tasks
 
   def initialize(tasks = "")

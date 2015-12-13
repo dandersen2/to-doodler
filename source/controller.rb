@@ -6,46 +6,45 @@ require_relative 'task'
 require_relative 'task_list'
 require_relative 'view'
 
-include CsvParser
-
   class Controller
+  include CsvParser
 
   attr_reader :view
+  attr_writer :view
 
     def initialize
-      @tdl = TaskList.new(csv_parse('todo.csv'))
+      @my_todo_list = TaskList.new(csv_parse('todo.csv'))
       @view = View.new   # (ARGV)?
       run_interface
     end
 
     def run_interface
-      input = ""
       self.view.start_menu
       input = self.view.get_user_input
-      if input[:command] == "list"
-        view.display_list(@tdl.print_tasks)
-      elsif input[:command] == "add"
-        @tdl.add_task(input[:task_item])
-        view.display("You have added '#{input[:task_item]}' to your to do list.")
-        view.display_list(@tdl.print_tasks)
-      elsif input[:command] == "delete"
-        @tdl.delete_task(input[:task_item])
-        view.display("You have deleted '#{input[:task_item]}' from your to do list.")
-        view.display_list(@tdl.print_tasks)
-      elsif input[:command] == "completed"
-        @tdl.check_off_task(input[:task_item])
-        view.display("You have checked off '#{input[:task_item]}' on your to do list.")
-        view.display_list(@tdl.print_tasks)
+
+      case input[:command]
+      when "list"
+        view.display_list(@my_todo_list.print_tasks)
+      when "add"
+        @my_todo_list.add_task(input[:task_item])
+        view.display_list(@my_todo_list.print_tasks)
+      when "delete"
+        @my_todo_list.delete_task(input[:task_item])
+        view.display_list(@my_todo_list.print_tasks)
+      when "completed"
+        @my_todo_list.check_off_task(input[:task_item])
+        view.display_list(@my_todo_list.print_tasks)
+      when "exit"
+        view.display("Thanks for using To-Doodler! Goodbye.")
       else
-        if input[:command] == 'exit'
-          view.display("Thanks for using To-Doodler! Goodbye.")
-        else
-          view.display("I'm sorry, I didn't understand that command. Make sure you have entered a valid command and task item.
-            ")
-        end
+        view.display("I'm sorry, I didn't understand that command. Make sure you have entered a valid command and task item.
+          ")
       end
-      @updated_file = TaskList.new(csv_write('updated_todo.csv'))
-      @view = View.new
+      # @my_todo_list.csv_write('updated_todo.csv')  #???
+      unless input[:command] == 'exit'
+        @updated_file = TaskList.new(csv_write('updated_todo.csv'))
+        @view = View.new
+      end
       if input[:command] == 'exit'
         return false
       else
