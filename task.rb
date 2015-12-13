@@ -1,3 +1,4 @@
+require_relative 'todo_parser'
 class Task
   attr_reader :to_do, :date_added
   attr_accessor :completed
@@ -18,4 +19,3 @@ class Task
     completed ? "[X]" : "[ ]"
   end
 end
-

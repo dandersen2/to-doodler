@@ -1,23 +1,22 @@
 require 'csv'
-require 'pry'
-class TodoParser
-attr_reader :file, :to_dos, :each_task
 
-  def initialize(file)
-    @file = file
-    @to_dos = []
+class TodoParser
+attr_reader :file, :to_dos_info, :each_task
+
+  def initialize
+    @file = 'source/todo.csv'
+    @to_dos_info = []
+    add_list
   end
 
   def add_list #parserwe are not good friends yet CSV
-    csv_file = CSV.read(@file)
-     csv_file.each do |row |
-      row.each do
-       |row|
-       @each_task = {}
-       @each_task[:to_do] = row
-       self.to_dos << Task.new(@each_task)
-     end
-    end
-   end
+    csv_file = CSV.read(self.file)
+    csv_file.map {|row| self.to_dos_info << {:to_do => row[0]}}
+  end
+
 end
+
+
+
+
 
