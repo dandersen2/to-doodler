@@ -2,14 +2,18 @@ class TaskList
 include CsvParser
 attr_accessor :tasks
 
-  def initialize(tasks = "")
-    @tasks = tasks
+  def initialize(filename = "updated_todo.csv")
+    @tasks = csv_parse(filename)
    end
 
    #Printable_list should be here, not in the view!!!
 
   def print_tasks
     @tasks
+  end
+
+  def save(filename = 'todo.csv')
+    csv_write(self.to_s)
   end
 
   def add_task(task_string)
@@ -33,6 +37,7 @@ attr_accessor :tasks
   end
 
   def to_s
+    @tasks.map{|task| task.to_s }.join("\n")
   # ? I'm not sure where the proper place for this is with my current MVC setup?
   # output task_id + content + completed? (DONE [ ])
   end

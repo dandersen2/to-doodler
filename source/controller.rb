@@ -6,7 +6,7 @@ require_relative 'task_list'
 require_relative 'view'
 
   class Controller
-  include CsvParser
+  # include CsvParser
 
   attr_reader :view
   attr_writer :view
@@ -14,19 +14,22 @@ require_relative 'view'
     def initialize
       # @my_todo_list = TaskList.new(csv_parse_with_headers('updated_todo_headers.csv'))
       # binding.pry
-      @my_todo_list = TaskList.new(csv_parse('updated_todo.csv'))
+      @my_todo_list = TaskList.new('updated_todo.csv')
       # @my_todo_list = TaskList.new(csv_parse('todo.csv'))
       @view = View.new   # (ARGV)?
       run_interface
     end
 
     def run_interface
+
       self.view.start_menu
+
       input = self.view.get_user_input
+
       # binding.pry
       case input[:command]
       when "list"
-        view.display_list(@my_todo_list.print_tasks)
+        view.display_list(@my_todo_list.to_s)
       when "add"
         @my_todo_list.add_task(input[:task_item])
         view.display_list(@my_todo_list.print_tasks)
@@ -42,16 +45,21 @@ require_relative 'view'
         view.display("I'm sorry, I didn't understand that command. Make sure you have entered a valid command and task item.
           ")
       end
-      # @my_todo_list.csv_write('updated_todo.csv')  #???
-      unless input[:command] == 'exit'
-        @updated_file = TaskList.new(csv_write('updated_todo.csv'))
-        @view = View.new
-      end
-      if input[:command] == 'exit'
-        return false
-      else
-        run_interface
-      end
+
+
+      # # @my_todo_list.csv_write('updated_todo.csv')  #???
+      # unless input[:command] == 'exit'
+      #   @updated_file = TaskList.new(csv_write('updated_todo.csv'))
+      #   @view = View.new
+      # end
+      # if input[:command] == 'exit'
+      #   return false
+      # else
+      #   run_interface
+      # end
+      @my_todo_list.save
+      run_interface unless input[:command] == 'exit'
+
     end
 
   end

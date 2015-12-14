@@ -12,6 +12,14 @@ attr_accessor :completed
     @completed
   end
 
+  def to_s
+    "#{self.task_id}.  #{self.completed? ? "[X]" : "[ ]" } #{self.content}"
+  end
+
+  def complete!
+    @complete = true
+  end
+
   # def completed?
   #   if @completed
   #     "[X]"
