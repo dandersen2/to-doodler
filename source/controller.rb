@@ -1,4 +1,3 @@
-# requires ALL files that interact
 require 'pry'
 
 require_relative 'csv_parser'

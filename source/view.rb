@@ -1,4 +1,3 @@
-# 2. Displaying information to the user (view)
 class View
 
   attr_reader :printable_list
@@ -22,14 +21,8 @@ class View
         self.printable_list << [task.content]
       end
     end
-    # self.printable_list.each do |line|
-    #   puts line
-    # end
     puts
     printable_list
-
-    # binding.pry
-    puts "hellooooo"
   end
 
   def get_user_input

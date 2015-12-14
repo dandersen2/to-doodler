@@ -1,6 +1,6 @@
 class Task
-attr_reader :content, :task_id, :completed
-attr_writer :completed
+attr_reader :content, :task_id
+attr_accessor :completed
 
   def initialize(args)
     @completed = args.fetch(:completed, false)

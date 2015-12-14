@@ -36,10 +36,4 @@ attr_accessor :tasks
   # ? I'm not sure where the proper place for this is with my current MVC setup?
   # output task_id + content + completed? (DONE [ ])
   end
-
-
 end
-
-
-#  CSV: number, completed, content
-        # 1,false, buy bananas
