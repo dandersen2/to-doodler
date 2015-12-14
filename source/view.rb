@@ -15,16 +15,21 @@ class View
     puts "Here is your current to do list:"
     task_objects.each_with_index do |task, index|
       if index < 9
-        self.printable_list << "#{index + 1}.  #{task.completed?} #{task.content}"
+        puts "#{index + 1}.  #{task.completed?} #{task.content}"
+        self.printable_list << [task.content]
       else
-        self.printable_list << "#{index + 1}. #{task.completed?} #{task.content}"
+        puts "#{index + 1}. #{task.completed?} #{task.content}"
+        self.printable_list << [task.content]
       end
     end
-    self.printable_list.each do |line|
-      puts line
-    end
+    # self.printable_list.each do |line|
+    #   puts line
+    # end
     puts
     printable_list
+
+    # binding.pry
+    puts "hellooooo"
   end
 
   def get_user_input

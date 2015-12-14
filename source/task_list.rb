@@ -6,6 +6,8 @@ attr_accessor :tasks
     @tasks = tasks
    end
 
+   #Printable_list should be here, not in the view!!!
+
   def print_tasks
     @tasks
   end
@@ -38,3 +40,6 @@ attr_accessor :tasks
 
 end
 
+
+#  CSV: number, completed, content
+        # 1,false, buy bananas
