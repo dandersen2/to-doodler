@@ -12,6 +12,8 @@ require_relative 'view'
   attr_writer :view
 
     def initialize
+      # @my_todo_list = TaskList.new(csv_parse_with_headers('updated_todo_headers.csv'))
+      # binding.pry
       @my_todo_list = TaskList.new(csv_parse('updated_todo.csv'))
       # @my_todo_list = TaskList.new(csv_parse('todo.csv'))
       @view = View.new   # (ARGV)?
@@ -21,7 +23,7 @@ require_relative 'view'
     def run_interface
       self.view.start_menu
       input = self.view.get_user_input
-
+      # binding.pry
       case input[:command]
       when "list"
         view.display_list(@my_todo_list.print_tasks)
