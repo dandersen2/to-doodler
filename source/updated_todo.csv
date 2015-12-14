@@ -1,14 +1,17 @@
-false,Move with Lil to the black mountain hills of Dakota,1
-true,Lose Lil to Danny,2
-false,Get hit in the eye by Danny,3
-false,Walk into town seeking revenge,4
-false,Book room at local saloon,5
-false,Check into room and read Gideon's bible,6
-false,Overhear Lil and Danny in neighboring room,8
-false,Burst into neighboring room and declare a showdown,9
-false,Get shot by Danny and collapse in corner,10
-false,Return to room and read Gideon's bible,11
-false,Sing along! D'do d'do d'do do do d'do d'do d'do,12
-true,hello i am dan,13
-false,buy some milk,14
-false,walk the dog,15
+task_id, completed, content
+1, false, Move with Lil to the black mountain hills of Dakota
+2, true, Lose Lil to Danny
+3, true, Get hit in the eye by Danny
+4, false, Walk into town seeking revenge
+5, false, Book room at local saloon
+6, false, Check into room and read Gideon's bible
+7, false, Drink too much gin
+8, true, Overhear Lil and Danny in neighboring room
+9, true, Burst into neighboring room and declare a showdown
+10, true, Get shot by Danny and collapse in corner
+11, false, Visit doctor
+12, Return to room and read Gideon's bible,
+13, false, Sing along! D'do d'do d'do do do d'do d'do d'do
+15,false,get some sleep
+16,false,walk the dog
+17,true,learn some Ruby!

@@ -13,7 +13,7 @@ attr_accessor :tasks
   end
 
   def add_task(task_string)
-    self.tasks << Task.new({content: task_string})
+    self.tasks << Task.new({task_id: (tasks.length + 1), completed: false, content: task_string})
   end
 
   def delete_task(task_string)

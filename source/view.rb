@@ -16,13 +16,15 @@ class View
     # binding.pry
     task_objects.each_with_index do |task, index|
       if index < 9
-        puts "#{index + 1}.  #{task.completed?} #{task.content}"
+        puts "#{task.task_id}.  #{task.completed} #{task.content}"
+        # puts "#{index + 1}.  #{task.completed?} #{task.content}"
         # self.printable_list << [task.content]
-        self.printable_list << [task.completed, task.content, task.task_id]
+        self.printable_list << [task.task_id, task.completed, task.content]
       else
-        puts "#{index + 1}. #{task.completed?} #{task.content}"
+        puts "#{task.task_id}. #{task.completed} #{task.content}"
+        # puts "#{index + 1}. #{task.completed?} #{task.content}"
         # self.printable_list << [task.content]
-        self.printable_list << [task.completed, task.content, task.task_id]
+        self.printable_list << [task.task_id, task.completed, task.content]
       end
     end
     puts

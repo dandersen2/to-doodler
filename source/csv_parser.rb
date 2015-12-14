@@ -21,12 +21,16 @@ module CsvParser
 #   end
 # end
 
-
   def csv_parse(file)
     CSV.foreach(file).map do |row|
-      Task.new( {content: row[0], task_id: $.})
+      Task.new( {task_id: row[0], completed: row[1], content: row[2]})
     end
   end
+  # def csv_parse(file)
+  #   CSV.foreach(file).map do |row|
+  #     Task.new( {content: row[0], task_id: $.})
+  #   end
+  # end
 # The "$." here in task_id gets the row number from a csv
 # http://stackoverflow.com/questions/12407035/ruby-csv-get-current-line-row-number
 #  CSV: number, completed, content (using headers)
