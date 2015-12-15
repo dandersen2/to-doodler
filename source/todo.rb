@@ -1,10 +1,38 @@
-# What classes do you need?
+require 'csv'
 
-# Remember, there are four high-level responsibilities, each of which have multiple sub-responsibilities:
-# 1. Gathering user input and taking the appropriate action (controller)
-# 2. Displaying information to the user (view)
-# 3. Reading and writing from the todo.txt file (persisting models to non-volatile storage, aka "the hard drive")
-# 4. Manipulating the in-memory objects that model a real-life TODO list (model)
 
-# Note that (4) is where the essence of your application lives.
-# Pretty much every application in the universe has some version of responsibilities (1), (2), and (3).
+class ToDo
+	attr_accessor :file, :list
+	def initialize(file)
+		@file = file
+		@list = []
+	end
+
+	def parse_list
+		CSV.foreach(@file) do |task_item|
+			@list << task_item.join
+		end
+	end
+
+	def print_list
+		@list.each_with_index do |task, index|
+			puts (index+1).to_s + ' ' + task
+		end
+	end
+
+	def add_task(input)
+		@list << input
+		save_task(input)
+	end
+
+	def save_task(input)
+		CSV.open(@file, "a") do |csv|
+			csv << input.split(' ')
+		end
+		print_list
+	end
+	
+end
+
+
+
