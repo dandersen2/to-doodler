@@ -24,3 +24,4 @@ There are 2 types of search that can be used in To-Doodler. For an "inclusive" f
 
 To exit out of To-Doodler, type "exit" when asked for your input.
 
+For a look at how To-Doodler works under the hood, see the [task_list.rb](https://github.com/dandersen2/todos-final/blob/master/source/task_list.rb) file, which handles the list actions in conjunction with the [controller.rb](https://github.com/dandersen2/todos-final/blob/master/source/controller.rb) file.
