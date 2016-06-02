@@ -1,6 +1,6 @@
 1,true,Buy a giraffe,2016-01-07T18:50:38-05:00,2016-01-09T17:37:29-05:00
 all,animals,shopping,zoo
-2,true,Read POODIR,2016-01-07T18:50:38-05:00,2016-01-09T17:37:29-05:00
+2,false,Read POODIR,2016-01-07T18:50:38-05:00,2016-01-09T17:37:29-05:00
 all,books,reading
 3,false,read the cat in the hat,2016-01-07T18:50:38-05:00,2016-01-09T17:37:29-05:00
 all,books,reading
@@ -48,7 +48,7 @@ all,dbc,UX-design
 all,testing,programming
 25,true,test sorting by completion date,2016-01-09T18:09:41-05:00,2016-01-09T18:10:44-05:00
 all
-26,false,watch revenant,2016-01-09T18:10:02-05:00,2016-01-09T19:12:15-05:00
+26,true,watch revenant,2016-01-09T18:10:02-05:00,2016-06-02T17:11:14-04:00
 all,movies
 27,true,go to the store,2016-01-09T19:12:02-05:00,2016-01-09T21:53:47-05:00
 all,important
@@ -56,9 +56,11 @@ all,important
 all
 29,false,Add new class that can hold multiple users information?,2016-01-09T21:15:06-05:00,2016-01-09T21:15:06-05:00
 all,testing,programming,dbc
-30,true,watch NFL playoffs,2016-01-09T21:25:49-05:00,2016-01-09T21:25:55-05:00
-all,sports,entertainment,social
-31,false,test out numbers as commands,2016-01-09T22:48:27-05:00,2016-01-09T22:48:27-05:00
+30,false,test out numbers as commands,2016-01-09T22:48:27-05:00,2016-01-09T22:48:27-05:00
 all
-32,true,do a final walkthrough,2016-01-09T22:50:23-05:00,2016-01-09T22:50:46-05:00
+31,true,do a final walkthrough,2016-01-09T22:50:23-05:00,2016-01-09T22:50:46-05:00
+all
+32,false,test todoodler is still working May 2016,2016-06-02T17:10:53-04:00,2016-06-02T17:10:53-04:00
+all
+33,false,Remember to buy eggs and milk,2016-06-02T17:17:29-04:00,2016-06-02T17:17:29-04:00
 all
