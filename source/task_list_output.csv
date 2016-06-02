@@ -1,0 +1,64 @@
+1,true,Buy a giraffe,2016-01-07T18:50:38-05:00,2016-01-09T17:37:29-05:00
+all,animals,shopping,zoo
+2,true,Read POODIR,2016-01-07T18:50:38-05:00,2016-01-09T17:37:29-05:00
+all,books,reading
+3,false,read the cat in the hat,2016-01-07T18:50:38-05:00,2016-01-09T17:37:29-05:00
+all,books,reading
+4,true,defeat a mighty dragon,2016-01-08T20:47:17-05:00,2016-01-09T17:37:29-05:00
+all,dragons,animals
+5,false,escape the minotaur's maze,2016-01-08T20:55:20-05:00,2016-01-09T17:37:29-05:00
+all,animals
+6,true,Buy a yacht,2016-01-08T21:05:16-05:00,2016-01-09T22:49:52-05:00
+all,shopping
+7,true,find a needle in a haystack,2016-01-08T21:05:29-05:00,2016-01-09T22:45:05-05:00
+all,impossible
+8,false,Play settlers of Catan,2016-01-08T21:10:08-05:00,2016-01-09T17:37:29-05:00
+all,entertainment,games,social
+9,true,order the 'pickaxe' book,2016-01-08T21:12:36-05:00,2016-01-09T17:37:29-05:00
+all,shopping
+10,false,Test pretty-print to_s method,2016-01-08T22:05:06-05:00,2016-01-09T17:37:29-05:00
+all,testing,programming
+11,true,Bring back Jon Snow,2016-01-08T22:05:50-05:00,2016-01-09T18:06:56-05:00
+all,GOT
+12,false,get a Dire Wolf,2016-01-08T22:06:02-05:00,2016-01-09T17:37:29-05:00
+all,animals,GOT,important
+13,true,test to find out where the task object is being printed,2016-01-08T22:15:39-05:00,2016-01-09T17:37:29-05:00
+all,important
+14,true,still testing,2016-01-08T22:20:14-05:00,2016-01-09T18:11:04-05:00
+all,testing,programming
+15,false,commit a final version of the pretty print method.,2016-01-08T22:24:49-05:00,2016-01-09T17:37:29-05:00
+all
+16,true,"I know that the to_s isnt a standard to_s, ust wanted to try to get a formatted output",2016-01-08T22:25:29-05:00,2016-01-09T17:37:29-05:00
+all
+17,false,Go get something to eat,2016-01-08T22:26:07-05:00,2016-01-09T17:37:29-05:00
+all,food,important
+18,false,Watch the Patriots game,2016-01-08T22:26:20-05:00,2016-01-09T17:37:29-05:00
+all,sports
+19,true,commit a good version of this todo-list app before adding optional coloring,2016-01-08T22:28:20-05:00,2016-01-09T21:15:31-05:00
+all,testing,dbc
+20,false,Add coloring effects for todo list,2016-01-09T16:36:25-05:00,2016-01-09T17:37:29-05:00
+all,testing,programming
+21,true,Test out the new to_s method for each task using a simpler content_line string,2016-01-09T16:48:26-05:00,2016-01-09T17:37:29-05:00
+all,DBC
+22,true,Do laundry,2016-01-09T16:57:39-05:00,2016-01-09T18:06:42-05:00
+all,home
+23,true,Test the coloring scheme for todos list,2016-01-09T17:14:47-05:00,2016-01-09T17:37:29-05:00
+all,dbc,UX-design
+24,false,test new completed at time attribute for tasks and output sorting,2016-01-09T18:06:31-05:00,2016-01-09T18:06:31-05:00
+all,testing,programming
+25,true,test sorting by completion date,2016-01-09T18:09:41-05:00,2016-01-09T18:10:44-05:00
+all
+26,false,watch revenant,2016-01-09T18:10:02-05:00,2016-01-09T19:12:15-05:00
+all,movies
+27,true,go to the store,2016-01-09T19:12:02-05:00,2016-01-09T21:53:47-05:00
+all,important
+28,true,Test the exclusive filter functionality,2016-01-09T20:58:21-05:00,2016-01-09T21:01:07-05:00
+all
+29,false,Add new class that can hold multiple users information?,2016-01-09T21:15:06-05:00,2016-01-09T21:15:06-05:00
+all,testing,programming,dbc
+30,true,watch NFL playoffs,2016-01-09T21:25:49-05:00,2016-01-09T21:25:55-05:00
+all,sports,entertainment,social
+31,false,test out numbers as commands,2016-01-09T22:48:27-05:00,2016-01-09T22:48:27-05:00
+all
+32,true,do a final walkthrough,2016-01-09T22:50:23-05:00,2016-01-09T22:50:46-05:00
+all
