@@ -19,8 +19,15 @@ Type "7" or "completed" and hit enter to see all of your completed tasks:
 
 ###Searching for To Do's in your List:
 
-There are 2 types of search that can be used in To-Doodler. For an "inclusive" filter type "10" or "inclusive-filter" followed by several tags separated by spaces and hit enter to see a list of ALL the tasks that are tagged with ANY of those tags. For an "exclusive" filter type "11" or "exclusive-filter" followed by several tags separated by spaces and hit enter to see a list of ONLY the tasks that are tagged with ALL of those tags. Here is an example of the results of an exclusive-filter search using the tags "testing" and "programming":
-![Screenshot 5](https://github.com/dandersen2/todos-final/blob/master/to-doodler-screenshot-exclusive-filter.png "exclusive-filtered tasks")
+There are 2 types of search that can be used in To-Doodler. For an "inclusive" filter type "10" or "inclusive-filter" followed by several tags separated by spaces and hit enter to see a list of ALL the tasks that are tagged with ANY of those tags. For an "exclusive" filter type "11" or "exclusive-filter" followed by several tags separated by spaces and hit enter to see a list of ONLY the tasks that are tagged with ALL of those tags.
+
+Here is an example of the results of an inclusive-filter search using the tags "testing" and "programming":
+![Screenshot 5](https://github.com/dandersen2/todos-final/blob/master/to-doodler-screenshot-inclusive-filter.png "inclusive-filtered tasks")
+Notice that there are 6 results here.
+
+And here is an example of the results of an exclusive-filter search using the same tags "testing" and "programming":
+![Screenshot 6](https://github.com/dandersen2/todos-final/blob/master/to-doodler-screenshot-exclusive-filter.png "exclusive-filtered tasks")
+Notice that there are only 5 results this time because not all of the tasks from the previous inclusive search included BOTH of the tags in this search.
 
 To exit out of To-Doodler, type "exit" when asked for your input.
 
