@@ -1,0 +1,50 @@
+1,true,Buy a giraffe,2016-01-07T18:50:38-05:00
+all,animals,shopping,zoo
+2,true,Read POODIR,2016-01-07T18:50:38-05:00
+all,books,reading
+3,false,read the cat in the hat,2016-01-07T18:50:38-05:00
+all,books,reading
+4,true,defeat a mighty dragon,2016-01-08T20:47:17-05:00
+all,dragons,animals
+5,false,escape the minotaur's maze,2016-01-08T20:55:20-05:00
+all,animals
+6,true,test for tagging ability from empty rows,2016-01-08T20:56:30-05:00
+all
+7,false,Buy a yacht,2016-01-08T21:05:16-05:00
+all,shopping
+8,true,find a needle in a haystack,2016-01-08T21:05:29-05:00
+all,impossible
+9,false,Play settlers of Catan,2016-01-08T21:10:08-05:00
+all
+10,true,order the 'pickaxe' book,2016-01-08T21:12:36-05:00
+all,shopping
+11,false,Test pretty-print to_s method,2016-01-08T22:05:06-05:00
+all,testing,programming,important
+12,true,Check if new tasks are still working with initial methods AND aligning correctly,2016-01-08T22:05:30-05:00
+all,testing,programming
+13,false,Bring back Jon Snow,2016-01-08T22:05:50-05:00
+all,GOT
+14,false,get a Dire Wolf,2016-01-08T22:06:02-05:00
+all,animals,GOT
+15,true,test to find out where the task object is being printed,2016-01-08T22:15:39-05:00
+all,important
+16,true,still testing,2016-01-08T22:20:14-05:00
+all,testing,programming
+17,false,commit a final version of the pretty print method.,2016-01-08T22:24:49-05:00
+all
+18,true,"I know that the to_s isnt a standard to_s, ust wanted to try to get a formatted output",2016-01-08T22:25:29-05:00
+all
+19,false,Go get something to eat,2016-01-08T22:26:07-05:00
+all,food
+20,false,Watch the Patriots game,2016-01-08T22:26:20-05:00
+all,sports
+21,true,commit a good version of this todo-list app before adding optional coloring,2016-01-08T22:28:20-05:00
+all
+22,false,Add coloring effects for todo list,2016-01-09T16:36:25-05:00
+all,testing,programming
+23,true,Test out the new to_s method for each task using a simpler content_line string,2016-01-09T16:48:26-05:00
+all,testing,programming,DBC
+24,false,Do laundry,2016-01-09T16:57:39-05:00
+all
+25,true,Test the coloring scheme for todos list,2016-01-09T17:14:47-05:00
+all

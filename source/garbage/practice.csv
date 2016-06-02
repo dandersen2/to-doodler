@@ -1,0 +1,115 @@
+1,true,Buy a giraffe,2016-01-07T18:50:38-05:00
+
+2,true,eat more carrots,2016-01-07T18:50:38-05:00
+
+3,false,Create filtering methods that will display certain task objects based on the command,2016-01-07T18:50:38-05:00
+
+4,false,Read POODIR,2016-01-07T18:50:38-05:00
+
+5,true,do thing 2,2016-01-07T18:50:38-05:00
+
+6,false,Walk the hamster,2016-01-07T18:50:38-05:00
+
+7,true,thing 1 and thing 2,2016-01-07T18:50:38-05:00
+
+8,false,read the cat in the hat,2016-01-07T18:50:38-05:00
+
+9,true,do more exercise?,2016-01-07T18:50:38-05:00
+
+10,false,become a jedi master coder,2016-01-07T18:50:38-05:00
+
+11,false,do some of the things and stuff...,2016-01-07T18:50:38-05:00
+
+12,true,do the things !,2016-01-07T18:50:38-05:00
+
+13,false,Test to see if time created_at is working,2016-01-07T18:52:31-05:00
+
+14,true,"Yes, I beleive that the datetime is now working",2016-01-07T18:52:49-05:00
+
+15,false,is the time working yet?!,2016-01-07T20:37:31-05:00
+
+16,true,Walk into Mordor,2016-01-07T20:44:38-05:00
+
+17,false,buy cherries,2016-01-07T20:47:15-05:00
+
+18,true,Play games and eat cookies!,2016-01-07T20:49:34-05:00
+
+19,false,learn to unicycle,2016-01-07T20:55:08-05:00
+
+20,true,go to Spain,2016-01-07T20:57:51-05:00
+
+21,false,Go to the dentist,2016-01-07T20:59:34-05:00
+
+22,false,test if the tags array is working,2016-01-07T21:15:45-05:00
+
+23,true,is it working>?,2016-01-07T21:16:50-05:00
+
+24,false,buy a zebra,2016-01-07T21:24:14-05:00
+
+25,true,test for the add tag method,2016-01-07T21:43:25-05:00
+
+26,true,test the filters yo,2016-01-07T21:51:40-05:00
+
+27,false,second test of the filters,2016-01-07T21:53:04-05:00
+
+28,true,"it works! it works! It will probably only work for a single tag, but thats a start",2016-01-07T22:02:52-05:00
+
+29,true,Final test of all functions before pull request,2016-01-07T22:10:12-05:00
+
+30,false,Read War and Peace,2016-01-08T18:49:29-05:00
+
+31,false,read chapter 6 in well grounded rubyist,2016-01-08T19:05:23-05:00
+
+
+
+
+8,false,read the cat in the hat,2016-01-07T18:50:38-05:00
+
+9,true,do more exercise?,2016-01-07T18:50:38-05:00
+
+10,false,become a jedi master coder,2016-01-07T18:50:38-05:00
+
+11,false,do some of the things and stuff...,2016-01-07T18:50:38-05:00
+
+12,true,do the things!,2016-01-07T18:50:38-05:00
+
+13,false,Test to see if time created_at is working,2016-01-07T18:50:38-05:00
+
+14,true,Yes I believe that the datetime is now working,2016-01-07T18:50:38-05:00
+
+15,false,is the time working yet,2016-01-07T18:50:38-05:00
+
+16,true,Walk into Mordor,2016-01-07T18:50:38-05:00
+
+17,false,buy cherries,2016-01-07T18:50:38-05:00
+
+18,true,Play games and eat cookies!,2016-01-07T18:50:38-05:00
+
+19,false,learn to unicycle,2016-01-07T18:50:38-05:00
+
+20,true,go to Spain,2016-01-07T18:50:38-05:00
+
+21,false,Go to the dentist,2016-01-07T18:50:38-05:00
+
+22,false,test if the tags array is working,2016-01-07T18:50:38-05:00
+
+23,true,is it working?,2016-01-07T18:50:38-05:00
+
+24,false,buy a zebra,2016-01-07T18:50:38-05:00
+
+25,true,test for the add tag method,2016-01-07T18:50:38-05:00
+
+26,true,test the filters yo,2016-01-07T18:50:38-05:00
+
+27,false,second test of the filters,2016-01-07T18:50:38-05:00
+
+28,true,it works! it works! It will probably only work for a single tag, but thats a start,2016-01-07T18:50:38-05:00
+
+29,true,Final test of all functions before pull request,2016-01-07T18:50:38-05:00
+
+30,false,Read War and Peace,2016-01-07T18:50:38-05:00
+
+31,false,read chapter 6 in well grounded rubyist,2016-01-07T18:50:38-05:00
+
+
+
